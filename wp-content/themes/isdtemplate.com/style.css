@@ -105,7 +105,6 @@ body{
 	background: #FFFFFF;
 	color: var(--font-color-default);
 	margin: 0;
-    overflow: hidden;
     /* Remove the comment from line 85 to 86 if the font issue in safari occurs */
     /* -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; */
