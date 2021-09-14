@@ -197,41 +197,6 @@ function ai_starter_theme_remove_media_queries_from_child_stylesheet() {
 }
 
 /*
- * Enqueue google fonts as a single URL
- */
-function ai_starter_theme_concatenate_google_fonts() {
-
-	/* Define variables */
-    global $wp_styles;
-	$search_for = "fonts.googleapis.com/css?family";
-	$google_fonts = array();
-
-	/* Find enqueued Google fonts */
-	foreach ( $wp_styles->registered as $name=>$style ) {
-
-		$src = $style->src;
-
-		if ( strpos( $src, $search_for ) !== FALSE ) {
-			wp_dequeue_style($name);
-
-			$url_components = parse_url($src);
-			parse_str( $url_components["query"], $vars );
-
-			$google_fonts[] = $vars["family"];
-		}
-
-	}
-
-	/* Concatenate Google fonts */
-	$concatenated = urlencode( implode("|", $google_fonts) );
-
-	wp_enqueue_style("aios-starter-theme-concatenated-google-fonts","https://fonts.googleapis.com/css?family=".$concatenated);
-
-}
-
-add_action( 'wp_enqueue_scripts', 'ai_starter_theme_concatenate_google_fonts', 12 );
-
-/*
  * Allow shortodes on text widgets
  */
 add_filter('widget_text', 'do_shortcode');

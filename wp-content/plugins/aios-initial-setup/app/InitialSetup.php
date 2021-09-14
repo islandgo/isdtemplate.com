@@ -109,6 +109,7 @@ class InitialSetup
     $settingsMetaAutoP = get_option('aios_auto_p_metabox', 0);
     $settingsEmailNotifications = get_option('aios_email_notification_metabox', 0);
     $settingsDisableMenuFilter = get_option('aios_disable_menu_filter', 0);
+    $settingsTDPLabs = get_option('aios_tdp_labs', 0);
 
     // jQuery Migrate
     $jQueryMigrate = get_option('aios-jquery-migrate', []);

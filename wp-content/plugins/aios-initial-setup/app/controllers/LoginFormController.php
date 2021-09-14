@@ -15,8 +15,8 @@ class LoginFormController
     if (strpos($GLOBALS['_SERVER']['REQUEST_URI'], 'wp-login') !== false) {
       include_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-      if (! \is_plugin_active('user-registration/user-registration.php')) {
-        add_action('login_form', [$this, 'authenticator']);
+      if (! \is_plugin_active('user-registration/user-registration.php') && !$this->is_aios_original_login() ) {
+				add_action('login_form', [$this, 'authenticator']);
         add_action('authenticate', [$this, 'authenticate'], 30, 3);
         add_action('login_head', [$this, 'styles']);
         add_filter('login_headerurl', [$this, 'url']);
@@ -87,8 +87,12 @@ class LoginFormController
    */
   public function dashboard($classes)
   {
-    $loginScreen = get_option( 'aios_custom_login_screen' );
-    $loginScreen = ! empty($loginScreen) ? $loginScreen : 'default';
+	  if ((int) get_option('aios_tdp_labs', 0) === 1) {
+		  $loginScreen = 'thedesignpeople';
+	  } else {
+		  $loginScreen = get_option('aios_custom_login_screen');
+		  $loginScreen = ! empty($loginScreen) ? $loginScreen : 'default';
+	  }
 
     $tdp_class  = '';
     if ($loginScreen == 'thedesignpeople') {
@@ -114,8 +118,12 @@ class LoginFormController
     // set uniqid
     $uniqid = $this->uniqid('');
 
-    $loginScreen = get_option( 'aios_custom_login_screen' );
-    $loginScreen = ! empty($loginScreen) ? $loginScreen : 'default';
+	  if ((int) get_option('aios_tdp_labs', 0) === 1) {
+		  $loginScreen = 'thedesignpeople';
+	  } else {
+		  $loginScreen = get_option('aios_custom_login_screen');
+		  $loginScreen = ! empty($loginScreen) ? $loginScreen : 'default';
+	  }
 
     echo '<div id="imhuman-container">
 				<p>Security</p>
@@ -124,14 +132,12 @@ class LoginFormController
 					<input type="hidden" name="session_token" id="session_token" value="' . $uniqid . '"></div>
 				</div>';
 
-    if($this->aios_original_login()){
       echo '<div id="rm-rb"><div class="clear"></div></div>';
       if ($loginScreen == 'thedesignpeople'){
         echo '<div id="powered-by">Powered by <a href="https://www.agentimage.com/" target="_blank" style="color:#e61e25 !important;">TheDesignPeople, Inc</a></div>';
       } else {
         echo '<div id="powered-by">Powered by <a href="https://www.agentimage.com/" target="_blank">Agent Image</a></div>';
       }
-    }
   }
 
   /**
@@ -169,7 +175,13 @@ class LoginFormController
    */
   public function styles()
   {
-    $_loginscreen = get_option( 'aios_custom_login_screen' );
+	  if ((int) get_option('aios_tdp_labs', 0) === 1) {
+		  $_loginscreen = 'thedesignpeople';
+	  } else {
+		  $_loginscreen = get_option('aios_custom_login_screen');
+		  $_loginscreen = ! empty($_loginscreen) ? $_loginscreen : 'default';
+	  }
+
     $_loginscreen_logo = get_option( 'aios_custom_login_screen_logo' );
     switch ( $_loginscreen ) {
       case 'agentpro':
@@ -237,7 +249,6 @@ class LoginFormController
         </style>';
     }
 
-    if ($this->aios_original_login()) {
       $_login_background = ! empty($wp_login_background) ? 'body.login {
 					background-image: url("' . $cdn_url . $wp_login_background . '");
 					background-color: transparent;
@@ -582,30 +593,7 @@ class LoginFormController
 					}
 				</style>';
 
-    } else {
-      echo ' <script>
-					document.addEventListener("DOMContentLoaded",function(){
-			
-						var $loginform 		= document.getElementById("loginform");
-						var $imhuman 		= document.getElementById("imhuman-container");
-						var $login_error 	= document.createElement( "div" );
 
-						$login_error.id = "login_error";
-						$login_error.className = "shake_error";
-						$login_error.innerHTML = "We need to make sure you\'re not a robot.";
-			
-						document.getElementById("wp-submit").addEventListener( "click", function( e ) {
-							if( document.getElementById("imhuman").checked == false ) {
-								e.preventDefault();
-								if( document.getElementById("login_error") == null ) {
-									$loginform.className="imhuman-error"
-									document.getElementById("login").insertBefore( $login_error, $loginform );
-								}
-							}
-						} );
-					});
-				</script> ';
-    }
   }
 
   /**
@@ -669,11 +657,9 @@ class LoginFormController
     // Invalid username.
     // Default: '<strong>ERROR</strong>: Invalid username. <a href="%s">Lost your password</a>?'
     if (in_array('invalid_username', $err_codes) || in_array('incorrect_password', $err_codes) || in_array('authentication_failed', $err_codes)) {
-      if ($this->aios_original_login()){
-        $error = "<strong>ERROR</strong>: Invalid Credentials. <a href=".get_site_url()."/wp-login.php?action=lostpassword>Lost your password</a>? You can contact our support for assistance 1.877.317.4111<br> $login_tries";
-      } else {
-        $error = "<strong>ERROR</strong>: Invalid Credentials. <a href=".get_site_url()."/wp-login.php?action=lostpassword>Lost your password</a>?";
-      }
+
+		$error = "<strong>ERROR</strong>: Invalid Credentials. <a href=".get_site_url()."/wp-login.php?action=lostpassword>Lost your password</a>? You can contact our support for assistance 1.877.317.4111<br> $login_tries";
+
     }
 
     return $error;
@@ -745,9 +731,9 @@ class LoginFormController
    * @access protected
    * @return string
    */
-  public function aios_original_login()
+  public function is_aios_original_login()
   {
-    return get_option('aios_custom_login_screen') !== 'original';
+    return get_option('aios_custom_login_screen') === 'original';
   }
 }
 

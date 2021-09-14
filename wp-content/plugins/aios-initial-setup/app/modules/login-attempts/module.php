@@ -106,6 +106,15 @@ class Module {
    * @since 4.2.4
    */
   public function render() {
+  	// Delete ID
+	  if (isset($_GET['delete_id']) && get_post_status($_GET['delete_id'])) {
+			wp_delete_post($_GET['delete_id'], true);
+
+		  echo "<div class=\"notice notice-success is-dismissible\">
+        <p><strong>Data deleted.</strong></p>
+      </div>";
+	  }
+
     include_once 'render.php';
   }
 }

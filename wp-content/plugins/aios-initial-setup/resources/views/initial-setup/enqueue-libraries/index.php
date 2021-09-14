@@ -1,4 +1,28 @@
 <!-- BEGIN: Row Box -->
+<!--<div class="wpui-row wpui-row-box">-->
+<!--  <div class="wpui-col-md-3">-->
+<!--    <p class="mt-2"><span class="wpui-settings-title">Minified Resources</span></p>-->
+<!--  </div>-->
+<!--  <div class="wpui-col-md-9">-->
+<!--    <div class="form-group">-->
+<!--      <div class="form-checkbox-group">-->
+<!--        <div class="form-toggle-switch">-->
+<!--          <div class="form-checkbox">-->
+<!--            <label>-->
+<!--              <input type="checkbox" name="aios-enqueue-cdn[enable-minified-resources]" value="1" -->
+<!--              Enable serving minified resources.-->
+<!--            </label>-->
+<!--            <p>Turning on this option will serve resources in one cdn files.</p>-->
+<!--            <input id="refresh-minified-resources" type="submit" class="wpui-default-button text-uppercase wpui-min-width-initial mt-3" value="Refresh Minified Resources">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!-- END: Row Box -->
+
+<!-- BEGIN: Row Box -->
 <div class="wpui-row wpui-row-box">
 	<div class="wpui-col-md-3">
 		<p class="mt-0"><span class="wpui-settings-title">Enqueue Libraries</span> Libraries will be enqueue on Front End</p>
@@ -10,9 +34,29 @@
         <div class="form-toggle-switch">
           <div class="form-checkbox">
             <label>
+              <input type="checkbox" name="aios-enqueue-cdn[lazyframe]" id="lazyframe" value="1" <?= $libraries['lazyframe'] ?? '' === 1 ? 'checked=checked' : '' ?>>
+              <strong>Lazyframe</strong>
+              <span class="form-group-description"><strong>JavaScript</strong> <em>(handler: </em>aios-lazyframe<em>)</em> - Lazyframe creates a responsive placeholder for embedded content and requests it when the user interacts with it. This decreases the page load and idle time. <a href="https://vb.github.io/lazyframe/" target="_blank">Demo</a></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-toggle-switch">
+          <div class="form-checkbox">
+            <label>
+              <input type="checkbox" name="aios-enqueue-cdn[picturefill]" id="picturefill" value="1" <?= $libraries['picturefill'] ?? '' === 1 ? 'checked=checked' : '' ?>>
+              <strong>Picturefill</strong>
+              <span class="form-group-description"><strong>JavaScript</strong> <em>(handler: </em>aios-picturefill<em>)</em> - Picturefill enables support for the picture element and associated features in browsers that do not yet support them. <a href="http://scottjehl.github.io/picturefill/" target="_blank">Demo</a></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-toggle-switch">
+          <div class="form-checkbox">
+            <label>
               <input type="checkbox" name="aios-enqueue-cdn[bootstrap_no_components_css]" id="bootstrap_no_components_css" value="1" <?= $libraries['bootstrap_no_components_css'] ?? '' === 1 ? 'checked=checked' : '' ?>>
               <strong>CSS Bootstrap without Components</strong>
-              <span class="form-group-description"><em>(handler: </em>aios-starter-theme-bootstrap<em>)</em> - This will have only common css such as Grid system Tables, Forms, Buttons, Responsive utilities</span>
+              <span class="form-group-description"><strong>CSS</strong> <em>(handler: </em>aios-starter-theme-bootstrap<em>)</em> - This will have only common css such as Grid system Tables, Forms, Buttons, Responsive utilities</span>
             </label>
           </div>
         </div>
@@ -40,7 +84,7 @@
         <div class="form-toggle-switch">
           <div class="form-checkbox">
             <label>
-              <input type="checkbox" name="aios-enqueue-cdn[chainHight]" id="chainHight" value="1" <?= $libraries['chainHight'] ?? '' === 1 ? 'checked=checked' : '' ?>>
+              <input type="checkbox" name="aios-enqueue-cdn[chainHeight]" id="chainHeight" value="1" <?= $libraries['chainHight'] ?? '' === 1 || $libraries['chainHeight'] ?? '' === 1 ? 'checked=checked' : '' ?>>
               Chain Height
               <span class="form-group-description"><strong>JavaScript</strong> <em>(handler: </em>aios-chain-height-script<em>)</em></span>
             </label>
@@ -142,45 +186,6 @@
 
 			</div>
 		</div>
-	</div>
-</div>
-<!-- END: Row Box -->
-<!-- BEGIN: Row Box -->
-<div class="wpui-row wpui-row-box">
-	<div class="wpui-col-md-3">
-		<p class="mt-2"><span class="wpui-settings-title">Minified Resources</span></p>
-	</div>
-	<div class="wpui-col-md-9">
-		<div class="form-group">
-			<div class="form-checkbox-group">
-        <div class="form-toggle-switch">
-          <div class="form-checkbox">
-            <label>
-              <input type="checkbox" name="aios-enqueue-cdn[aios_minified_resources]" value="1" <?= $libraries['aios_minified_resources'] ?? '' === 1 ? 'checked=checked' : '' ?>>
-              Enable Resources Minifier
-            </label>
-            <p>This will minify only files from resources cdn.</p>
-          </div>
-        </div>
-			</div>
-		</div>
-		<?php
-			echo AIOS_CREATE_FIELDS::select( [
-				'row' => false,
-				'name' => 'aios-enqueue-cdn[expiration]',
-				'label' => true,
-				'label_value' => 'Expiration',
-				'options' => [
-          '999' => 'No Expiration',
-          WEEK_IN_SECONDS => '1 week',
-          2 * WEEK_IN_SECONDS => '2 weeks',
-          3 * WEEK_IN_SECONDS => '3 weeks',
-          MONTH_IN_SECONDS => '1 months'
-        ],
-				'value' => $libraries['expiration'] ?? ''
-			] );
-		?>
-		<input id="refresh-minified-resources" type="submit" class="wpui-default-button text-uppercase wpui-min-width-initial mt-3" value="Refresh Minified Resources">
 	</div>
 </div>
 <!-- END: Row Box -->

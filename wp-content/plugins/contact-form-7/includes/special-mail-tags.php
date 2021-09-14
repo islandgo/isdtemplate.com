@@ -169,23 +169,11 @@ function wpcf7_site_related_smt( $output, $name, $html, $mail_tag = null ) {
 	$filter = $html ? 'display' : 'raw';
 
 	if ( '_site_title' == $name ) {
-		$output = get_bloginfo( 'name', $filter );
-
-		if ( ! $html ) {
-			$output = wp_specialchars_decode( $output, ENT_QUOTES );
-		}
-
-		return $output;
+		return get_bloginfo( 'name', $filter );
 	}
 
 	if ( '_site_description' == $name ) {
-		$output = get_bloginfo( 'description', $filter );
-
-		if ( ! $html ) {
-			$output = wp_specialchars_decode( $output, ENT_QUOTES );
-		}
-
-		return $output;
+		return get_bloginfo( 'description', $filter );
 	}
 
 	if ( '_site_url' == $name ) {

@@ -31,7 +31,7 @@ class ShortcodeController
           <div id="wpui-container">
             <div class="wpui-container">
               <h4>AIOS Shortcode <div class="_close"><em class="ai-font-x-sign""></em></div></h4>';
-                require_once AIOS_INITIAL_SETUP_VIEWS . 'initial-setup' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'index.php';
+      require_once AIOS_INITIAL_SETUP_VIEWS . 'initial-setup' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'index.php';
       echo '</div>
           </div>
         </div>
@@ -49,7 +49,6 @@ class ShortcodeController
   public function shortcodeLists()
   {
     // Force to remove old shortcodes and replace
-    remove_shortcode('agentimage_credits');
     add_shortcode('agentimage_credits', [$this, 'credits_shortcode']);
     add_shortcode('blogurl', [$this, 'get_blogurl']);
     add_shortcode('current_url', [$this, 'get_current_url']);
@@ -559,14 +558,13 @@ class ShortcodeController
     }
 
     // Check given id if exists
-    $image = wp_get_attachment_image_src($atts['id'], $atts['default_size']);
     $image = wp_get_attachment_image_src($atts['id'], ($atts['reset'] ? (! empty($atts['default_size']) ? $atts['default_size'] : end($sizes)) : 'full' ));
 
     /** Enable lazyload */
     if ($atts['lazyload']) {
-      $class = empty($atts['class']) ? $atts['class'] : 'lazyload ' . $atts['class'];
+      $class = 'lazyload ' . $atts['class'];
     } else {
-      $class = '';
+      $class = $atts['class'];
     }
 
     if ( $image ) {
@@ -575,10 +573,10 @@ class ShortcodeController
       $alt_tag = ! empty($atts['alt']) ? $atts['alt'] : $this->aios_responsive_image_alt($atts['id']);
       $alt_tag = ! empty($alt_tag) ? 'alt="' . $alt_tag . '"' : '';
       $output = '<picture>
-					' . $image_set . '
-					<img ' . $width . ' ' . $height . ' srcset="' . $image[0] . '" ' . $alt_tag . ' ' . $id_name . ' class="' . $class . '">
-					<noscript><img src="' . $image[0] . '" ' . $alt_tag . ' ' . $id_name . ' class="' . $class . 	'"></noscript>
-				</picture>';
+			' . $image_set . '
+			<img ' . $width . ' ' . $height . ' srcset="' . $image[0] . '" ' . $alt_tag . ' ' . $id_name . ' class="' . $class . '">
+			<noscript><img src="' . $image[0] . '" ' . $alt_tag . ' ' . $id_name . ' class="' . $class . 	'"></noscript>
+		</picture>';
 
       return $output;
     }

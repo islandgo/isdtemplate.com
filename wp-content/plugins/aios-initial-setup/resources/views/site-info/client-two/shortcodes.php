@@ -122,9 +122,14 @@
 				'title' 		=> 'Client Partner Cameo',
 				'description' 	=> 'Returns the value of Client Partner Cameo',
 				'shortcode' 	=> '[ai_client_partner_cameo]'
+			],
+			[
+				'title' 		=> 'Client Partner TikTok',
+				'description' 	=> 'Returns the value of Client Partner TikTok',
+				'shortcode' 	=> '[ai_client_partner_tiktok]'
 			]
 		];
-		
+
 		foreach ( $partner_shortcodes as $shortcode => $value ) {
 			$output = '<div class="wpui-row wpui-row-box">
 				<div class="wpui-col-md-3">

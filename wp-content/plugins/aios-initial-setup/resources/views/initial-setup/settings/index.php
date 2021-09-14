@@ -127,7 +127,26 @@
 </div>
 <!-- END: Row Box -->
 
+<!-- BEGIN: Row Box -->
+<div class="wpui-row wpui-row-box">
+	<div class="wpui-col-md-3">
+    <p class="mt-0"><span class="wpui-settings-title">Switch to TDP Labs</span> This will disable all real estate related functions</p>
+	</div>
+	<div class="wpui-col-md-9">
+		<div class="form-group">
+			<div class="form-checkbox-group">
+				<div class="form-toggle-switch">
+					<div class="form-checkbox">
+						<label><input type="checkbox" value="1" name="aios_tdp_labs" <?= (int) $settingsTDPLabs === 1 ? 'checked="checked"' : '' ?>> Enable</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Row Box -->
 
+<!-- BEGIN: Submit -->
 <div class="wpui-row wpui-row-submit">
 	<div class="wpui-col-md-12">
 		<div class="form-group">
@@ -135,3 +154,4 @@
 		</div>
 	</div>
 </div>
+<!-- END: Submit -->

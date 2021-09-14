@@ -36,7 +36,7 @@ class Module
       <div class="metabox-row">
         <?php $post_disable_p = get_post_meta($post->ID, 'ai_post_page_p', true); ?>
         <input type="checkbox" id="ai_post_page_p"
-          name="ai_post_page_p" <?php echo $post_disable_p === true ? 'checked="checked"' : '' ?> /> <label
+          name="ai_post_page_p" <?php echo $post_disable_p === 'on' ? 'checked="checked"' : '' ?> /> <label
           style="margin-top: -5px; display: inline-block;" for="ai_post_page_p">Remove Auto Paragraph?</label>
       </div>
     </div>

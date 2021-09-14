@@ -154,7 +154,7 @@
 /* Nav Hover/Active	 */
 .amh-navigation .amh-menu li.open > ul {
 	display: block;
-} 
+}
 
 
 /* Navigation Variant 1 */
@@ -186,7 +186,7 @@
 
 .amh-navigation.amh-nav-2 .amh-menu li a {
 	text-align: left;
-}		
+}
 
 /* Header phone list */
 
@@ -207,4 +207,10 @@
 
 .amh-header-phone-list li {
 	padding-bottom:7px;
+}
+
+@media print {
+	.aios-mobile-header-wrapper {
+		display:none !important;
+	}
 }

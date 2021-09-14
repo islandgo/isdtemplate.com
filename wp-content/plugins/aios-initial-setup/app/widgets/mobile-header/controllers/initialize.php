@@ -50,9 +50,7 @@ class Initialize {
 		wp_enqueue_script('aios-mobile-header-widget-navigation', AIOS_IS_MOBILE_HEADER_URL. '/views/lib/js/aios-mobile-header-navigation.js', [], false, true);
 		wp_enqueue_script('aios-mobile-header-main', AIOS_IS_MOBILE_HEADER_URL. '/views/lib/js/aios-mobile-header.js', [], false, true);
 
-		wp_enqueue_style('aios-mobile-header-lato', "https://fonts.googleapis.com/css?family=Lato:400,700");
 		wp_enqueue_style('aios-mobile-header-main', AIOS_IS_MOBILE_HEADER_URL . '/views/lib/css/style.css');
-		wp_enqueue_style('aios-mobile-header-main-print', AIOS_IS_MOBILE_HEADER_URL . '/views/lib/css/style-print.css', [], false, 'print');
 
 		$this->_theme_manager->enqueue_styles();
 	}

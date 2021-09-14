@@ -94,6 +94,15 @@ class App
       update_option('aios-modules-classic-editor-install', 'installed');
     }
 
+    // Update option to enable classic editor widget
+    if (empty(get_option('aios-modules-classic-editor-widget-install', ''))) {
+      $aios_initial_setup_modules = get_option('aios_initial_setup_modules');
+      $aios_initial_setup_modules['classic-editor-widget'] = 'yes';
+
+      update_option('aios_initial_setup_modules', $aios_initial_setup_modules);
+      update_option('aios-modules-classic-editor-widget-install', 'installed');
+    }
+
     // Classic editor module
     if (is_multisite()) {
       add_network_option(null, 'classic-editor-replace', 'classic');
@@ -192,7 +201,7 @@ class App
       wp_enqueue_style('aios-initial-setup-dashboard-widget', AIOS_INITIAL_SETUP_RESOURCES . 'css/dashboard-widgets.min.css');
     }
 
-    if (strpos($admin_page_id, 'aios-all-in-one') !== false || strpos($admin_page_id, 'aios-site-info') !== false) {
+    if (strpos($admin_page_id, 'aios-all-in-one') !== false || strpos($admin_page_id, 'tdp-all-in-one') !== false || strpos($admin_page_id, 'aios-site-info') !== false) {
       if (function_exists('wp_enqueue_media')) {
         wp_enqueue_media();
       }
@@ -230,6 +239,7 @@ class App
     global $submenu;
 
     unset($submenu['aios-all-in-one'][0]);
+    unset($submenu['tdp-all-in-one'][0]);
   }
 
   /**

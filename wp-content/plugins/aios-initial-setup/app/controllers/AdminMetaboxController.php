@@ -12,8 +12,16 @@ class AdminMetaboxController
    */
   public function __construct()
   {
+	  add_filter('init_custom_metaboxes_filter', [$this, 'init_custom_metaboxes_filter'], 12);
     add_action('admin_init', [$this, 'init_custom_metaboxes'], 10);
     add_action('widgets_init', [$this, 'register_sidebar'], 11);
+  }
+
+	/**
+	 * Remove metabox action using filter
+	 */
+  public function init_custom_metaboxes_filter() {
+	  remove_action( 'admin_init', [$this, 'init_custom_metaboxes'] );
   }
 
   /**

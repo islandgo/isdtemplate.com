@@ -143,7 +143,7 @@ class FetchController
    */
   public function admin_uiux()
   {
-    if (str_exists(get_current_screen()->id, 'aios-all-in-one_page_aios-initial-setup')) {
+    if (str_exists(get_current_screen()->id, 'aios-all-in-one_page_aios-initial-setup') || str_exists(get_current_screen()->id, 'tdp-all-in-one_page_aios-initial-setup')) {
       wp_enqueue_script('aios-initial-setup-admin-script', AIOS_INITIAL_SETUP_RESOURCES . 'js/admin.min.js');
       wp_localize_script('aios-initial-setup-admin-script', 'ajaxurl', admin_url('admin-ajax.php'));
     }
@@ -277,17 +277,13 @@ class FetchController
    */
   public function refresh_minified_resources()
   {
-    $aiosmin = WP_CONTENT_DIR . '/aiosmin';
-    $notification = [];
-    if (file_exists($aiosmin)) {
-      wp_delete_file($aiosmin . '/aios-bundle.css');
-      wp_delete_file($aiosmin . '/aios-header-bundle.js');
-      wp_delete_file($aiosmin . '/aios-footer-bundle.js');
-      delete_transient('aiosmin');
-      $notification[] = 'success';
-    } else {
-      $notification[] = 'error';
-    }
+    delete_transient('aios-cached-resources');
+
+    // Generate new file
+    $frontend = new FrontendEnqueueController();
+    $frontend->generate_cache_files();
+
+    $notification = ['success'];
 
     echo json_encode($notification);
     die();

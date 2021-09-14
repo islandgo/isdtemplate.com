@@ -15,7 +15,7 @@
                 <span class="d-block pl-5">&bullet; Hide the title(.entry-title) base on page slug</span>
                 <span class="d-block pl-5">&bullet; Set overflow hidden from inner page class(body.post-page-SLUG #inner-page-wrapper) base on page slug</span>
               </span>
-              <span class="form-group-description">- Enqueue elementpeek and animate</span>
+              <span class="form-group-description">- Enqueue AOS</span>
             </label>
           </div>
           <div class="form-checkbox">
@@ -25,7 +25,7 @@
                 <span class="d-block pl-5">&bullet; Hide the title(.entry-title) base on page slug</span>
                 <span class="d-block pl-5">&bullet; Set overflow hidden from inner page class(body.post-page-SLUG #inner-page-wrapper) base on page slug</span>
               </span>
-              <span class="form-group-description">- Enqueue elementpeek and animate</span>
+              <span class="form-group-description">- Enqueue AOS</span>
             </label>
           </div>
           <div class="form-checkbox">
@@ -35,7 +35,7 @@
                 <span class="d-block pl-5">&bullet; Hide the title(.entry-title) base on page slug</span>
                 <span class="d-block pl-5">&bullet; Set overflow hidden from inner page class(body.post-page-SLUG #inner-page-wrapper) base on page slug</span>
               </span>
-              <span class="form-group-description">- Enqueue elementpeek and animate</span>
+              <span class="form-group-description">- Enqueue AOS</span>
             </label>
           </div>
           <div class="form-checkbox">
@@ -44,7 +44,7 @@
               <span class="form-group-description">- For changing the default slug(about), you need to do the following changes:
                 <span class="d-block pl-5">&bullet; Set overflow hidden from inner page class(body.post-page-SLUG #inner-page-wrapper) base on page slug</span>
               </span>
-              <span class="form-group-description">- Enqueue elementpeek and animate</span>
+              <span class="form-group-description">- Enqueue AOS</span>
             </label>
           </div>
         </div>
@@ -67,13 +67,13 @@
               <span class="form-group-description">- For changing the default slug(about), you need to do the following changes:
                 <span class="d-block pl-5">&bullet; Set overflow hidden from inner page class(body.post-page-SLUG #inner-page-wrapper) base on page slug</span>
               </span>
-              <span class="form-group-description">- Enqueue elementpeek and animate</span>
+              <span class="form-group-description">- Enqueue AOS</span>
             </label>
           </div>
           <div class="form-checkbox">
             <label>
               <input type="radio" name="contact-page-select-layout" class="generate-default-pages" value="iconic-contact"> Iconic
-              <span class="form-group-description">- Enqueue elementpeek and animate</span>
+              <span class="form-group-description">- Enqueue AOS</span>
             </label>
           </div>
           <div class="form-checkbox">
@@ -82,7 +82,7 @@
               <span class="form-group-description">- For changing the default slug(about), you need to do the following changes:
                 <span class="d-block pl-5">&bullet; Set overflow hidden from inner page class(body.post-page-SLUG #inner-page-wrapper) base on page slug</span>
               </span>
-              <span class="form-group-description">- Enqueue elementpeek and animate</span>
+              <span class="form-group-description">- Enqueue AOS</span>
             </label>
           </div>
           <div class="form-checkbox">
@@ -91,7 +91,7 @@
               <span class="form-group-description">- For changing the default slug(about), you need to do the following changes:
                 <span class="d-block pl-5">&bullet; Set overflow hidden from inner page class(body.post-page-SLUG #inner-page-wrapper) base on page slug</span>
               </span>
-              <span class="form-group-description">- Enqueue elementpeek and animate</span>
+              <span class="form-group-description">- Enqueue AOS</span>
             </label>
           </div>
         </div>

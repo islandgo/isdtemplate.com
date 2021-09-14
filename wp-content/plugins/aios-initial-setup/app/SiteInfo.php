@@ -23,9 +23,10 @@ class SiteInfo
    */
   public function add_menu()
   {
+	  $prefix = ((int) get_option('aios_tdp_labs', 0) === 1) ? 'TDP' : 'AIOS';
     add_submenu_page(
       'aios-all-in-one',
-      'Initial Setup - AIOS All in One',
+      'Initial Setup - ' . $prefix . ' All in One',
       'Site Info',
       'manage_options',
       'aios-site-info',

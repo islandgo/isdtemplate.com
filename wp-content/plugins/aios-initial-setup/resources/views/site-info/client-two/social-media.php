@@ -222,6 +222,20 @@
 	</div>
 </div>
 <!-- END: Row Box -->
+<!-- BEGIN: Row Box -->
+<div class="wpui-row wpui-row-box">
+  <div class="wpui-col-md-3">
+    <p><span class="wpui-settings-title">TikTok</span></p>
+  </div>
+  <div class="wpui-col-md-9">
+    <div class="form-group">
+      <input type="text" name="aiis_ci[partner-tiktok]" id="aiis_ci[partner-tiktok]"
+        value="<?=$options['partner-tiktok'] ?? ''?>"
+        placeholder="https://www.tiktok.com/@username">
+    </div>
+  </div>
+</div>
+<!-- END: Row Box -->
 
 <div class="wpui-row wpui-row-submit">
 	<div class="wpui-col-md-12">

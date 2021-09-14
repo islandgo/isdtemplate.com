@@ -32,7 +32,7 @@ trait Config
 	<strong>Email</strong> [ai_client_email_text] | <strong>Phone</strong> [ai_client_phone]{default-phone}[/ai_client_phone]
 </div>
 <div style="display: block; font-size: 11px; margin-top: 7px;">
-	This e-mail was sent from a contact form on The ' . get_bloginfo('name') . '.<br><strong>' . get_site_url() . '</strong>
+	This e-mail was sent from a contact form on ' . get_bloginfo('name') . '.<br><strong>' . get_site_url() . '</strong>
 </div>')),
 
       'name_subject_client' => 'aios-cf7-template-subject-client',
@@ -51,7 +51,7 @@ trait Config
       'intro_client' => stripslashes_deep(get_option('aios-cf7-template-intro-client', '')),
       'closing_client' => stripslashes_deep(get_option('aios-cf7-template-closing-client', '')),
       'footer_client' => stripslashes_deep(get_option('aios-cf7-template-footer-client', '<div style="display: block; font-size: 11px; margin-top: 15px;">
-		This e-mail was sent from a contact form on The ' . get_bloginfo('name') . '.<br><strong>' . get_site_url() . '</strong>
+		This e-mail was sent from a contact form on ' . get_bloginfo('name') . '.<br><strong>' . get_site_url() . '</strong>
 </div>')),
 
       'user_font_style' => 'font-family: ' . get_option('aios-cf7-template-fonts-user', 'Arial, sans-serif') . '; font-size: ' . get_option('aios-cf7-template-fonts-size-user', '14') . '; line-height: 22px; color:' . get_option('aios-cf7-template-fonts-color-user', '#000') . '; text-decoration:none; font-weight:normal; margin:0 !important; letter-spacing:0;',

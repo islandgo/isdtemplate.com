@@ -108,7 +108,30 @@ class Widget extends WP_Widget {
 		$subsubmenu_text_color_hover = ! empty($instance['subsubmenu_text_color_hover']) ? $instance['subsubmenu_text_color_hover'] : '#FFFFFF';
 
 		if ($use_custom_color == 1) {
-			echo '<script>
+			if (function_exists('is_plugin_active') && is_plugin_active('aios-optimize/index.php')) {
+				echo '<style type="text/css">
+				.' . $this->id . ' .amh-header-buttons{background: ' . $background . '; color: ' . $icon_color . ' !important;}
+					.' . $this->id . ' .amh-header-buttons .amh-phone .amh-phone-text{color: ' . $icon_color . ';}
+					.' . $this->id . ' .amh-header-buttons .amh-navigation-trigger span{color: ' . $icon_color . ';}
+					.' . $this->id . ' .amh-header-phone-list a {color: ' . $icon_color . ';}
+				.' . $this->id . ' .amh-navigation{background: ' . $parent_background . ';}
+				.' . $this->id . ' .amh-navigation .amh-menu li{border-color: ' . $parent_border . ';}
+					.' . $this->id . ' .amh-navigation .amh-menu li a{color: ' . $parent_text_color . ';}
+						.' . $this->id . ' .amh-navigation .amh-menu li:hover > a,
+						.' . $this->id . ' .amh-navigation .amh-menu li.open > a{background: ' . $parent_background_hover . '; color: ' . $parent_text_color_hover . ';}
+				.' . $this->id . ' .amh-navigation .amh-menu li ul{background: ' . $submenu_background . ';}
+					.' . $this->id . ' .amh-navigation .amh-menu li ul li{border-color: ' . $submenu_border . ';}
+						.' . $this->id . ' .amh-navigation .amh-menu li ul li a{background: ' . $submenu_background . '; color: ' . $submenu_text_color . ';}
+							.' . $this->id . ' .amh-navigation .amh-menu li ul li:hover a,
+							.' . $this->id . ' .amh-navigation .amh-menu li ul li.open a{background: ' . $submenu_background_hover . '; color: ' . $submenu_text_color_hover . ';}
+				.' . $this->id . ' .amh-navigation .amh-menu li li.open ul{background: ' . $subsubmenu_background . ';}
+					.' . $this->id . ' .amh-navigation .amh-menu li li.open ul li{border-color: ' . $subsubmenu_border . ';}
+						.' . $this->id . ' .amh-navigation .amh-menu li li.open ul li a{background: ' . $subsubmenu_background . '; color: ' . $subsubmenu_text_color . ';}
+							.' . $this->id . ' .amh-navigation .amh-menu li li.open ul li:hover a,
+							.' . $this->id . ' .amh-navigation .amh-menu li li.open ul li.open a{background: ' . $subsubmenu_background_hover . '; color: ' . $subsubmenu_text_color_hover . ';}
+			</style>';
+			} else {
+				echo '<script>
 		jQuery( document ).ready( function() {
 			jQuery( "head" ).append("<style type=\"text/css\">\
 				.' . $this->id . ' .amh-header-buttons{background: ' . $background . '; color: ' . $icon_color . ' !important;}\
@@ -133,6 +156,7 @@ class Widget extends WP_Widget {
 			</style>");
 		} );
 	</script>';
+			}
 		}
 
 		/** Load template */

@@ -48,7 +48,7 @@ trait Modules
       'allow-shortcodes-in-action-attributes' => ['require-plugin' => 'no'],
       'auto-enable-banner-on-post-types' => ['require-plugin' => 'no'],
       'site-navigation-schema' => ['require-plugin' => 'no'],
-      'rest-api-link-disabler' => ['require-plugin' => 'no']
+      'rest-api-link-disabler' => ['require-plugin' => 'no'],
     ];
 
     return $aiosDefaultModules;

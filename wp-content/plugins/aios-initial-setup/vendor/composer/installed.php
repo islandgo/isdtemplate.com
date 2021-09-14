@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '3df2152adbfc2ac4d63548bdd8016644d999fc07',
+    'reference' => '66a452ac4d18d474a31b24d9cef36b4fbb84fe2d',
     'name' => 'aios/initial-setup',
   ),
   'versions' => 
@@ -18,25 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '3df2152adbfc2ac4d63548bdd8016644d999fc07',
-    ),
-    'matthiasmullie/minify' => 
-    array (
-      'pretty_version' => '1.3.66',
-      'version' => '1.3.66.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '45fd3b0f1dfa2c965857c6d4a470bea52adc31a6',
-    ),
-    'matthiasmullie/path-converter' => 
-    array (
-      'pretty_version' => '1.1.3',
-      'version' => '1.1.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'e7d13b2c7e2f2268e1424aaed02085518afa02d9',
+      'reference' => '66a452ac4d18d474a31b24d9cef36b4fbb84fe2d',
     ),
   ),
 );

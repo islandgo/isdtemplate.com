@@ -51,9 +51,10 @@ class Template
    */
   public function render_sub_pages()
   {
+	  $prefix = ((int) get_option('aios_tdp_labs', 0) === 1) ? 'TDP' : 'AIOS';
     add_submenu_page(
       'aios-all-in-one',
-      'Email Template - AIOS All in One',
+      'Email Template - ' . $prefix . ' All in One',
       'Email Template',
       'manage_options',
       'aios-email-template',

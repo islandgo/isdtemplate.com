@@ -54,6 +54,7 @@ class ShortcodeSiteInfoController
     add_shortcode('ai_client_caimeiju', [$this, 'get_ai_client_caimeiju']);
     add_shortcode('ai_client_rss', [$this, 'get_ai_client_rss']);
     add_shortcode('ai_client_cameo', [$this, 'get_ai_client_cameo']);
+    add_shortcode('ai_client_tiktok', [$this, 'get_ai_client_tiktok']);
     add_shortcode('ai_client_partner_photo', [$this, 'get_ai_client_partner_photo']);
     add_shortcode('ai_client_partner_name', [$this, 'get_ai_client_partner_name']);
     add_shortcode('ai_client_partner_license', [$this, 'get_ai_client_partner_license']);
@@ -89,6 +90,8 @@ class ShortcodeSiteInfoController
     add_shortcode('ai_client_partner_skype', [$this, 'get_ai_client_partner_skype']);
     add_shortcode('ai_client_partner_caimeiju', [$this, 'get_ai_client_partner_caimeiju']);
     add_shortcode('ai_client_partner_rss', [$this, 'get_ai_client_partner_rss']);
+    add_shortcode('ai_client_partner_cameo', [$this, 'get_ai_client_partner_cameo']);
+    add_shortcode('ai_client_partner_tiktok', [$this, 'get_ai_client_partner_tiktok']);
   }
 
   /**
@@ -468,13 +471,23 @@ class ShortcodeSiteInfoController
   }
 
   /**
-   * ai_client_partner_cameo
+   * ai_client_cameo
    *
    * @return mixed
    */
   public function get_ai_client_cameo()
   {
     return $this->options['cameo'] ?? '';
+  }
+
+  /**
+   * ai_client_cameo
+   *
+   * @return mixed
+   */
+  public function get_ai_client_tiktok()
+  {
+    return $this->options['tiktok'] ?? '';
   }
 
   /**
@@ -824,6 +837,16 @@ class ShortcodeSiteInfoController
   public function get_ai_client_partner_cameo()
   {
     return $this->options['partner-cameo'] ?? '';
+  }
+
+  /**
+   * ai_client_partner_tiktok
+   *
+   * @return mixed
+   */
+  public function get_ai_client_partner_tiktok()
+  {
+    return $this->options['partner-tiktok'] ?? '';
   }
 }
 

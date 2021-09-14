@@ -1,5 +1,6 @@
 <!-- Added: Version 3.9.8 -->
 <?php
+$aios_metaboxes_breadcrumb = get_option('aios-metaboxes-breadcrumb', 0);
 $aios_metaboxes_banner_title_layout = get_option('aios-metaboxes-banner-title-layout', '');
 $aios_custom_title_post_types = get_option('aios-metaboxes-custom-title-post-types', []);
 $aios_custom_title_taxonomies = get_option('aios-metaboxes-custom-title-taxonomies', []);
@@ -53,6 +54,29 @@ foreach( $taxonomies as $taxonomy ) {
   }
 }
 ?>
+<!-- BEGIN: Row Box -->
+<div class="wpui-row wpui-row-box">
+  <div class="wpui-col-md-3">
+    <p>
+      <span class="wpui-settings-title">Breadcrumb</span>
+    </p>
+  </div>
+  <div class="wpui-col-md-9">
+    <?php
+    echo AIOS_CREATE_FIELDS::input_field([
+        'row' => false,
+        'label' => false,
+        'name' => 'aios-metaboxes-breadcrumb',
+        'options' => [1 => 'Remove from content'],
+        'value' => (int) $aios_metaboxes_breadcrumb ?? 0,
+        'type' => 'checkbox',
+        'toggle_ui' => true
+      ]);
+    ?>
+  </div>
+</div>
+<!-- END: Row Box -->
+
 <!-- BEGIN: Row Box -->
 <div class="wpui-row wpui-row-box">
   <div class="wpui-col-md-3">
