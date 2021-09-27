@@ -7,22 +7,171 @@
 /* iPad(landscape) | iPad(landscape) | Galaxy Tab 4 (landscape) | Galaxy Tab 3 (landscape) */
 @media only screen and (max-width: 1450px) {
     /* 1367 */
+
+    /*#region Global  */
+    /*#endregion Global  */
+
+    /*#region Header  */
+    /*#endregion Header  */
+
+    /*#region Banner  */
+    /*#endregion Banner  */
+
+    /*#region Welcome  */
+    /*#endregion Welcome  */
+
+    /*#region Communities  */
+    /*#endregion Communities  */
+
+    /*#region Properties  */
+    /*#endregion Properties  */
+
+    /*#region Blog  */
+    /*#endregion Blog  */
+
+    /*#region Testimonials  */
+    /*#endregion Testimonials  */
+
+    /*#region Git  */
+    /*#endregion Git  */
+
+    /*#region Footer  */
+    /*#endregion Footer  */
 }
 
 @media only screen and (max-width: 1366px) {
     /* 1200 */
+
+    /*#region Global  */
+    /*#endregion Global  */
+
+    /*#region Header  */
+    /*#endregion Header  */
+
+    /*#region Banner  */
+    /*#endregion Banner  */
+
+    /*#region Welcome  */
+    /*#endregion Welcome  */
+
+    /*#region Communities  */
+    /*#endregion Communities  */
+
+    /*#region Properties  */
+    /*#endregion Properties  */
+
+    /*#region Blog  */
+    /*#endregion Blog  */
+
+    /*#region Testimonials  */
+    /*#endregion Testimonials  */
+
+    /*#region Git  */
+    /*#endregion Git  */
+
+    /*#region Footer  */
+    /*#endregion Footer  */
 }
 
 @media only screen and (min-width: 992px) {
+    /*#region Global  */
+    /*#endregion Global  */
+
+    /*#region Header  */
+    /*#endregion Header  */
+
+    /*#region Banner  */
+    /*#endregion Banner  */
+
+    /*#region Welcome  */
+    /*#endregion Welcome  */
+
+    /*#region Communities  */
+    /*#endregion Communities  */
+
+    /*#region Properties  */
+    /*#endregion Properties  */
+
+    /*#region Blog  */
+    /*#endregion Blog  */
+
+    /*#region Testimonials  */
+    /*#endregion Testimonials  */
+
+    /*#region Git  */
+    /*#endregion Git  */
+
+    /*#region Footer  */
+    /*#endregion Footer  */
 }
 
 @media only screen and (max-width: 1199px) {
     /* 992 */
+
+    /*#region Global  */
+    /*#endregion Global  */
+
+    /*#region Header  */
+    /*#endregion Header  */
+
+    /*#region Banner  */
+    /*#endregion Banner  */
+
+    /*#region Welcome  */
+    /*#endregion Welcome  */
+
+    /*#region Communities  */
+    /*#endregion Communities  */
+
+    /*#region Properties  */
+    /*#endregion Properties  */
+
+    /*#region Blog  */
+    /*#endregion Blog  */
+
+    /*#region Testimonials  */
+    /*#endregion Testimonials  */
+
+    /*#region Git  */
+    /*#endregion Git  */
+
+    /*#region Footer  */
+    /*#endregion Footer  */
 }
 
 /* iPad(portrait) | Galaxy Tab 4(portrait)  */
 @media only screen and (max-width: 991px) {
     /* 768 */
+
+    /*#region Global  */
+    /*#endregion Global  */
+
+    /*#region Header  */
+    /*#endregion Header  */
+
+    /*#region Banner  */
+    /*#endregion Banner  */
+
+    /*#region Welcome  */
+    /*#endregion Welcome  */
+
+    /*#region Communities  */
+    /*#endregion Communities  */
+
+    /*#region Properties  */
+    /*#endregion Properties  */
+
+    /*#region Blog  */
+    /*#endregion Blog  */
+
+    /*#region Testimonials  */
+    /*#endregion Testimonials  */
+
+    /*#region Git  */
+    /*#endregion Git  */
+
+    /*#region Footer  */
+    /*#endregion Footer  */
     /* The following are used on inner pages. Please edit carefully. */
 
     .inner {
@@ -44,6 +193,36 @@
 /* Galaxy Tab 3(portrait) | Galaxy S5(landscape) */
 @media only screen and (max-width: 767px) {
     /* 481 */
+
+    /*#region Global  */
+    /*#endregion Global  */
+
+    /*#region Header  */
+    /*#endregion Header  */
+
+    /*#region Banner  */
+    /*#endregion Banner  */
+
+    /*#region Welcome  */
+    /*#endregion Welcome  */
+
+    /*#region Communities  */
+    /*#endregion Communities  */
+
+    /*#region Properties  */
+    /*#endregion Properties  */
+
+    /*#region Blog  */
+    /*#endregion Blog  */
+
+    /*#region Testimonials  */
+    /*#endregion Testimonials  */
+
+    /*#region Git  */
+    /*#endregion Git  */
+
+    /*#region Footer  */
+    /*#endregion Footer  */
     .ip-banner .container {
         width: 100%;
     }
@@ -52,4 +231,34 @@
 /* Galaxy S5(portrait) | iPod Touch(landscape) | iPod Touch(portrait) */
 @media only screen and (max-width: 480px) {
     /* 320 */
+
+    /*#region Global  */
+    /*#endregion Global  */
+
+    /*#region Header  */
+    /*#endregion Header  */
+
+    /*#region Banner  */
+    /*#endregion Banner  */
+
+    /*#region Welcome  */
+    /*#endregion Welcome  */
+
+    /*#region Communities  */
+    /*#endregion Communities  */
+
+    /*#region Properties  */
+    /*#endregion Properties  */
+
+    /*#region Blog  */
+    /*#endregion Blog  */
+
+    /*#region Testimonials  */
+    /*#endregion Testimonials  */
+
+    /*#region Git  */
+    /*#endregion Git  */
+
+    /*#region Footer  */
+    /*#endregion Footer  */
 }

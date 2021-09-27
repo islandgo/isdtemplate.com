@@ -112,6 +112,50 @@ body {
     -moz-osx-font-smoothing: grayscale; */
 }
 
+a,
+a:hover,
+a:visited,
+a:focus,
+input,
+input:focus,
+textarea,
+textarea:focus,
+select:focus,
+select {
+    outline: none !important;
+    text-decoration: none !important;
+}
+.slick-slide {
+    outline: none !important;
+}
+
+#main-wrapper {
+    overflow: hidden;
+}
+
+.canvas-wrapper {
+    position: relative;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+}
+
+.canvas-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+}
+
 /*#endregion Global */
 
 /*******************************************************

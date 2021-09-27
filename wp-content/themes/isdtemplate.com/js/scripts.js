@@ -6,6 +6,17 @@
             }, 1000);
         },
 
+        initDetectScroll: function () {
+            if (
+                jQuery(window).width() > 991 &&
+                jQuery(window).scrollTop() > 56
+            ) {
+                jQuery("header.header").addClass("show-fixed");
+            } else {
+                jQuery("header.header").removeClass("show-fixed");
+            }
+        },
+
         initNavigation: function () {
             var $nav = jQuery("#nav");
             if ($nav.length > 0) $nav.navTabDoubleTap();
@@ -34,6 +45,10 @@
         app.initFeaturedCommunities();
         app.initTestimonials();
         app.initQuickSearch();
+    });
+
+    jQuery(window).on("scroll", function () {
+        app.initDetectScroll();
     });
 
     jQuery(window).on("load", function () {});
