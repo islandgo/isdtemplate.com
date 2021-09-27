@@ -9,7 +9,7 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<?php if ( has_action( 'aios_seotools_gtm_body' ) ) { do_action('aios_seotools_gtm_body'); } ?>
+	<?php if ( has_action( 'aios_seotools_gtm_body' ) )  { do_action('aios_seotools_gtm_body'); } ?>
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Mobile Header") ) : ?><?php endif ?>
 
 	<div id="main-wrapper">
@@ -20,23 +20,54 @@
 
 
 	<header class="header">
-		<div class="container">
-			<div class="logo">
-				<a href="<?php echo esc_url( home_url() ) ?>" class="site-name"><?php bloginfo('name'); ?></a>
+		<div class="header-container">
+			<div class="header-logo">
+				<a href="[blogurl]" aria-label="logo">
+					<div class="header-img">
+						<img
+							alt="header"
+							style="max-height: 100px;"
+							class="img-header"
+							src="<?php echo get_stylesheet_directory_uri() ?>/images/header-logo.png"
+						/>
+					</div>
+				</a>
 			</div>
 
 			<nav class="navigation">
 				<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'menu_id' => 'nav', 'theme_location' => 'primary-menu' ) ); ?>
 			</nav>
+			
+
+				<!-- Burger Menu -->
+				<div class="burger-menu is-active">
+					<span></span>
+					<span></span>
+					<span>Menu</span>
+				</div>
+			
+
 		</div>
 	</header>
+	
+
+		<!-- Burger Menu Content -->
+		<div class="bm-menu bm-view">
+			<div class="bm-content" data-simplebar="init">
+				<div class="burger-navs">
+					<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'menu_id' => 'nav2', 'theme_location' => 'primary-menu','depth'=>1 ) ); ?>
+				</div>
+			</div>
+		</div>
+		<div class="bm-drop bm-view"></div>
+	
 
 	<main>
 		<h2 class="aios-starter-theme-hide-title">Main Content</h2>
 
 		<!-- ip banner goes here -->
     <?php
-    if ( ! is_home() && !is_page_template( 'template-homepage.php' ) && is_custom_field_banner( get_queried_object() ) && is_active_sidebar('aios-inner-pages-banner')) {
+    if ( ! is_home() && !is_page_template( 'template-homepage.php' ) && is_custom_field_banner( get_queried_object() ) && is_active_sidebar('aios-inner-pages-banner'))  {
       dynamic_sidebar('aios-inner-pages-banner');
     }
     ?>
@@ -49,3 +80,4 @@
 			<div class="container">
 
 		<?php endif ?>
+	
