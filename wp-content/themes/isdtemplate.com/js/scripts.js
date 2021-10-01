@@ -21,6 +21,7 @@
             var $nav = jQuery("#nav");
             if ($nav.length > 0) $nav.navTabDoubleTap();
         },
+
         initFeaturedProperties: function () {
             /* Put featured properties code here */
         },

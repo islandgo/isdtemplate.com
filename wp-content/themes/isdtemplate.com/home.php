@@ -8,6 +8,7 @@
 	</section>
 	<!-- Banner end -->
 
+
 	<!-- your home html -->
 
 <?php get_footer(); ?>
