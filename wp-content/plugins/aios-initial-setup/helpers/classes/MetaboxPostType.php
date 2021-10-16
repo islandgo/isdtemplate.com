@@ -21,7 +21,7 @@ class MetaboxPostType
    */
   public function __construct(string $post_type = '', array $post_type_metaboxes = [], bool $is_editor_support = false)
   {
-    if (! empty($post_type)) {
+    if (!empty($post_type)) {
       $modules = get_option('aios_initial_setup_modules', []);
       $this->isClassicEditor = isset($modules['classic-editor']) && $modules['classic-editor'] === 'yes';
 
@@ -30,8 +30,8 @@ class MetaboxPostType
       $this->is_editor_support = $is_editor_support;
 
       add_action('admin_enqueue_scripts', [$this, 'admin_uiux'], 10);
-      add_action('add_meta_boxes_'.$this->post_type, [$this, 'custom_metaboxes'], 10);
-      add_action('save_post_'.$this->post_type, [$this, 'custom_metaboxes_saved'], 10);
+      add_action('add_meta_boxes_' . $this->post_type, [$this, 'custom_metaboxes'], 10);
+      add_action('save_post_' . $this->post_type, [$this, 'custom_metaboxes_saved'], 10);
 
       if (post_type_supports($this->post_type, 'thumbnail')) {
         remove_post_type_support($this->post_type, 'thumbnail');
@@ -92,7 +92,7 @@ class MetaboxPostType
     $_thumbnail_id = get_post_meta($post_id, '_thumbnail_id', true);
     $fields = new Fields();
 
-    if (! empty($aios_custom_metabox)) {
+    if (!empty($aios_custom_metabox)) {
       extract($aios_custom_metabox);
     }
 
@@ -134,7 +134,7 @@ class MetaboxPostType
         jQuery( \'#' . $this->post_type . '-custom-meta-box\' ).insertAfter( \'#titlediv\' );
       });
     </script>';
-    ?>
+?>
 
     <!-- BEGIN: Main Container -->
     <div id="wpui-container-minimalist" class="wpui-tabs-post-type">
@@ -145,8 +145,8 @@ class MetaboxPostType
           <!-- BEGIN: Header -->
           <div class="wpui-tabs-header">
             <ul>
-              <li><a data-id="<?=$this->post_type?>-details"><?=apply_filters($this->post_type . '-default-tab', 'Details')?></a></li>
-              <?=apply_filters($this->post_type . '-additional-tabs', '')?>
+              <li><a data-id="<?= $this->post_type ?>-details"><?= apply_filters($this->post_type . '-default-tab', 'Details') ?></a></li>
+              <?= apply_filters($this->post_type . '-additional-tabs', '') ?>
             </ul>
           </div>
           <!-- END: Header -->
@@ -156,7 +156,7 @@ class MetaboxPostType
             <div class="wpui-tabs-body-loader"><i class="ai-font-loading-b"></i></div>
 
             <!-- BEGIN: Details -->
-            <div data-id="<?=$this->post_type?>-details" class="wpui-tabs-content <?=$this->post_type?>-custom-title">
+            <div data-id="<?= $this->post_type ?>-details" class="wpui-tabs-content <?= $this->post_type ?>-custom-title">
               <div class="wpui-tabs-container">
 
                 <?php
@@ -178,7 +178,7 @@ class MetaboxPostType
                     'row_title' => 'Custom Title',
                     'name' => 'aioscm_used_custom_title',
                     'options' => [
-                      '1' => 'Used Custom Title'
+                      '1' => 'Use custom title'
                     ],
                     'value' => $used_custom_title ?? '',
                     'type' => 'checkbox',
@@ -223,11 +223,11 @@ class MetaboxPostType
                       <p><span class="wpui-settings-title">Content</span></p>
                     </div>
                     <div class="wpui-col-md-9">';
-                      $post = get_post( $post_id, OBJECT, 'edit' );
-                      $content = $post->post_content;
-                      $editor_id = 'content';
+                  $post = get_post($post_id, OBJECT, 'edit');
+                  $content = $post->post_content;
+                  $editor_id = 'content';
 
-                      wp_editor($content, $editor_id);
+                  wp_editor($content, $editor_id);
                   echo '</div>
                     </div>';
                 }
@@ -235,12 +235,12 @@ class MetaboxPostType
                 // We need to send the post id to filter
                 $after_filter =  apply_filters('aios_add_custom_metabox_after_content_' . $this->post_type, $post_id);
                 echo str_replace($post_id, '', $after_filter);
-              ?>
+                ?>
               </div>
             </div>
             <!-- END: Details -->
 
-            <?=apply_filters($this->post_type . '-additional-content', '')?>
+            <?= apply_filters($this->post_type . '-additional-content', '') ?>
           </div>
           <!-- END: Body -->
         </div>
@@ -249,7 +249,7 @@ class MetaboxPostType
       <!-- END: Container -->
     </div>
     <!-- END: Main Container -->
-    <?php
+<?php
   }
 
   /**
@@ -267,12 +267,12 @@ class MetaboxPostType
     }
 
     // Verify taxonomies meta box nonce
-    if (! isset($_POST['aios_' . $this->post_type .'_meta_boxes_nonce']) || !wp_verify_nonce($_POST['aios_' . $this->post_type .'_meta_boxes_nonce'], 'aios-' . $this->post_type .'-save-details')) {
+    if (!isset($_POST['aios_' . $this->post_type . '_meta_boxes_nonce']) || !wp_verify_nonce($_POST['aios_' . $this->post_type . '_meta_boxes_nonce'], 'aios-' . $this->post_type . '-save-details')) {
       return true;
     }
 
     // Verify quick edit nonce
-    if (isset($_POST['_inline_edit']) && ! wp_verify_nonce($_POST['_inline_edit'], 'inlineeditnonce')) {
+    if (isset($_POST['_inline_edit']) && !wp_verify_nonce($_POST['_inline_edit'], 'inlineeditnonce')) {
       return $post_id;
     }
 
@@ -316,7 +316,7 @@ class MetaboxPostType
     update_post_meta((int) $post_id, 'aioscm_banner', $banner);
 
     // Update post thumbnail
-    if (! empty($_thumbnail_id)) {
+    if (!empty($_thumbnail_id)) {
       update_post_meta((int) $post_id, '_thumbnail_id', $_thumbnail_id);
     } else {
       delete_post_meta((int) $post_id, '_thumbnail_id');
