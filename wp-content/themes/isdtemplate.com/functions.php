@@ -12,6 +12,15 @@ function register_ai_child_starter_theme_sidebars() {
 	   'before_title' => '',
 	   'after_title' => ''
     ));
+
+	register_sidebar(array( 
+		'name' => 'Hp Slideshow',
+		'id'=>'hp-slideshow',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+	 ));
 	
 }
 

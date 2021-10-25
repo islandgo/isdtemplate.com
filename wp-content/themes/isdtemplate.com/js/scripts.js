@@ -59,22 +59,58 @@
             if ($nav.length > 0) $nav.navTabDoubleTap();
         },
 
-        initFeaturedProperties: function () {
-            /* Put featured properties code here */
-        },
-        initFeaturedCommunities: function () {
-            /* Put featured communities code here */
-        },
-        initTestimonials: function () {
-            /* Put testimonials code here */
-        },
-
         initQuickSearch: function () {
             //code here
         },
 
         initProperties: function () {
             //code here
+            var propertiesSlick = ".properties-slick";
+            $(propertiesSlick).slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: false,
+                autoplay: false,
+                arrows: false,
+                pauseOnHover: true,
+                draggable: true,
+                prevArrow: '<span class="ai-font-arrow-g-p slick-prev"></span>',
+                nextArrow: '<span class="ai-font-arrow-g-n slick-next"></span>',
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                        },
+                    },
+                ],
+            });
+        },
+
+        initCommunities: function () {
+            //code here
+            jQuery(".communities-slick").slick({
+                dots: false,
+                infinite: true,
+                slidesToShow: 3,
+                speed: 1000,
+                autoplay: false,
+                autoplaySpeed: 4000,
+                rows: 2,
+                arrows: false,
+                draggable: true,
+                prevArrow: '<span class="ai-font-arrow-b-p slick-prev"></span>',
+                nextArrow: '<span class="ai-font-arrow-b-n slick-next"></span>',
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                        },
+                    },
+                ],
+            });
         },
 
         initAreas: function () {
@@ -87,11 +123,11 @@
 
         app.initBurgerMenu();
 
-        app.initBanner();
-
         app.initQuickSearch();
 
         app.initProperties();
+
+        app.initCommunities();
 
         app.initAreas();
     });
