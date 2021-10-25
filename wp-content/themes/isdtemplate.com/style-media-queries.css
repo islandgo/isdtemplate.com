@@ -10,14 +10,10 @@
     /* 1367 */
     /*#region Global */
     /*#endregion Global */
-    /*#region Banner Region */
-    /*#endregion Banner Region */
-    /*#region Quick Search Region */
-    /*#endregion Quick Search Region */
-    /*#region Properties Region */
-    /*#endregion Properties Region */
-    /*#region Areas Region */
-    /*#endregion Areas Region */
+    /*#region Slideshow Region */
+    /*#endregion Slideshow Region */
+    /*#region Communities Region */
+    /*#endregion Communities Region */
     /*#region Footer */
     /*#endregion Footer */
     /*#region Fixed smi */
@@ -27,14 +23,10 @@
 @media only screen and (max-width: 1366px) {
     /*#region Global */
     /*#endregion Global */
-    /*#region Banner Region */
-    /*#endregion Banner Region */
-    /*#region Quick Search Region */
-    /*#endregion Quick Search Region */
-    /*#region Properties Region */
-    /*#endregion Properties Region */
-    /*#region Areas Region */
-    /*#endregion Areas Region */
+    /*#region Slideshow Region */
+    /*#endregion Slideshow Region */
+    /*#region Communities Region */
+    /*#endregion Communities Region */
     /*#region Footer */
     /*#endregion Footer */
     /*#region Fixed smi */
@@ -44,14 +36,10 @@
 @media only screen and (min-width: 992px) {
     /*#region Global */
     /*#endregion Global */
-    /*#region Banner Region */
-    /*#endregion Banner Region */
-    /*#region Quick Search Region */
-    /*#endregion Quick Search Region */
-    /*#region Properties Region */
-    /*#endregion Properties Region */
-    /*#region Areas Region */
-    /*#endregion Areas Region */
+    /*#region Slideshow Region */
+    /*#endregion Slideshow Region */
+    /*#region Communities Region */
+    /*#endregion Communities Region */
     /*#region Footer */
     /*#endregion Footer */
     /*#region Fixed smi */
@@ -61,14 +49,10 @@
 @media only screen and (max-width: 1199px) {
     /*#region Global */
     /*#endregion Global */
-    /*#region Banner Region */
-    /*#endregion Banner Region */
-    /*#region Quick Search Region */
-    /*#endregion Quick Search Region */
-    /*#region Properties Region */
-    /*#endregion Properties Region */
-    /*#region Areas Region */
-    /*#endregion Areas Region */
+    /*#region Slideshow Region */
+    /*#endregion Slideshow Region */
+    /*#region Communities Region */
+    /*#endregion Communities Region */
     /*#region Footer */
     /*#endregion Footer */
     /*#region Fixed smi */
@@ -81,6 +65,9 @@
 
 @media only screen and (max-width: 991px) {
     /* The following are used on inner pages. Please edit carefully. */
+    .aios-mobile-header-wrapper {
+        z-index: 1020 !important;
+    }
     .inner {
         width: 100%;
     }
@@ -110,14 +97,10 @@
 @media only screen and (max-width: 480px) {
     /*#region Global */
     /*#endregion Global */
-    /*#region Banner Region */
-    /*#endregion Banner Region */
-    /*#region Quick Search Region */
-    /*#endregion Quick Search Region */
-    /*#region Properties Region */
-    /*#endregion Properties Region */
-    /*#region Areas Region */
-    /*#endregion Areas Region */
+    /*#region Slideshow Region */
+    /*#endregion Slideshow Region */
+    /*#region Communities Region */
+    /*#endregion Communities Region */
     /*#region Footer */
     /*#endregion Footer */
     /*#region Fixed smi */

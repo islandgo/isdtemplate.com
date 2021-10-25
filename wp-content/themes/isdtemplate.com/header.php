@@ -33,35 +33,15 @@
 					</div>
 				</a>
 			</div>
-
 			<nav class="navigation">
 				<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'menu_id' => 'nav', 'theme_location' => 'primary-menu' ) ); ?>
+				
 			</nav>
 			
-
-				<!-- Burger Menu -->
-				<div class="burger-menu is-active">
-					<span></span>
-					<span></span>
-					<span>Menu</span>
-				</div>
-			
-
 		</div>
 	</header>
 	
-
-		<!-- Burger Menu Content -->
-		<div class="bm-menu bm-view">
-			<div class="bm-content" data-simplebar="init">
-				<div class="burger-navs">
-					<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'menu_id' => 'nav2', 'theme_location' => 'primary-menu','depth'=>1 ) ); ?>
-				</div>
-			</div>
-		</div>
-		<div class="bm-drop bm-view"></div>
 	
-
 	<main>
 		<h2 class="aios-starter-theme-hide-title">Main Content</h2>
 
