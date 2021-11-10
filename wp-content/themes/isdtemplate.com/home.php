@@ -7,6 +7,7 @@
         <a href="#" aria-label="skip" class="aios-initial-setup-dead-link"><img alt="skip" class="img-skip"
                 src="[stylesheet_directory]/images/skip.jpg" /></a>
     </div> -->
+    
 </div>
 <!-- intro video end -->
 
