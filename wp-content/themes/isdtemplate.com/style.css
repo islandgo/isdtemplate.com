@@ -411,7 +411,7 @@ header.header {
     background: transparent;
     -webkit-transition: all 0.8s ease;
     transition: all 0.8s ease;
-    padding: 24px;
+    padding: 24px 0;
 }
 
 /* header Grid */
