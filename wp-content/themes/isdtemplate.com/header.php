@@ -26,7 +26,6 @@
 					<div class="header-img">
 						<img
 							alt="header"
-							style="max-height: 100px;"
 							class="img-header"
 							src="<?php echo get_stylesheet_directory_uri() ?>/images/header-logo.png"
 						/>
@@ -34,8 +33,18 @@
 				</a>
 			</div>
 			<nav class="navigation">
+				<!-- if Header contact -->
+				<div class="header-contact">
+					<div class="header-phone">
+						<span class="ai-font-phone-o"></span>
+						<?php echo do_shortcode('[ai_phone href="+1.240.475.1357"]240.475.1357[/ai_phone]')?>
+					</div>
+					<div class="header-email">
+						<span class="ai-font-envelope-a"></span>
+						<?php echo do_shortcode('[mail_to email="isdtemplate.com"]isdtemplate.com[/mail_to]')?>
+					</div>
+				</div>
 				<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'menu_id' => 'nav', 'theme_location' => 'primary-menu' ) ); ?>
-				
 			</nav>
 			
 		</div>
