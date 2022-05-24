@@ -2,6 +2,11 @@
 
 namespace AiosInitialSetup\App\Modules\LoginAttempts;
 
+// If is not admin page or login page we should not run this module
+if (! (IS_LOGIN_PAGE || is_admin())) {
+	return;
+}
+
 class Module {
   /**
    * Initialise your object's

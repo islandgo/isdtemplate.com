@@ -116,11 +116,6 @@ class Blocker
         $this->insert_attempts($username, $datetime, $login_tries);
       }
     }
-
-    if ($_POST && ! empty($_POST['wp-submit'])) {
-      wp_redirect(site_url() . '/wp-login.php?failed-attempts=1');
-      die();
-    }
   }
 
   /**

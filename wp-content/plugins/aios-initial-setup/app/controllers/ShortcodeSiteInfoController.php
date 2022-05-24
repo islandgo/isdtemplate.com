@@ -12,8 +12,6 @@ class ShortcodeSiteInfoController
   public function __construct()
   {
     $this->options = get_option('aiis_ci');
-
-    add_action('admin_head', [$this, 'show_favicon'], 1);
     add_action('wp_head', [$this, 'show_favicon'], 1);
 
     add_shortcode('ai_client_logo', [$this, 'get_ai_client_logo']);
@@ -144,7 +142,7 @@ class ShortcodeSiteInfoController
    */
   public function get_ai_client_name()
   {
-    return $this->options['name'] ?? '';
+    return stripslashes($this->options['name']) ?? '';
   }
 
   /**
@@ -507,7 +505,7 @@ class ShortcodeSiteInfoController
    */
   public function get_ai_client_partner_name()
   {
-    return $this->options['partner-name'] ?? '';
+    return stripslashes($this->options['partner-name']) ?? '';
   }
 
   /**

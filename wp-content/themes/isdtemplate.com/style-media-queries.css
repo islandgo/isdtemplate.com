@@ -1,159 +1,45 @@
 /*******************************************************
-*
-* Mobile styles and other media queries
-*
-*******************************************************/
+ *
+ * Mobile styles and other media queries
+ *
+ *******************************************************/
 
-/* iPad(landscape) | iPad(landscape) | Galaxy Tab 4 (landscape) | Galaxy Tab 3 (landscape) */
-
-@media only screen and (min-width: 992px) {
-    /*#region Global */
-    /*#endregion Global */
-
-    /*#region Slideshow Region */
-
-    /*#endregion Slideshow Region */
-
-    /*#region Welcome Region */
-
-    /*#endregion Welcome Region */
-
-    /*#region Footer */
-    /*#endregion Footer */
-    /*#region Fixed smi */
-    /*#endregion Fixed smi */
-}
-
-@media only screen and (max-width: 1450px) {
-    /* 1367 */
-    /*#region Global */
-    /*#endregion Global */
-
-    /*#region Slideshow Region */
-
-    /*#endregion Slideshow Region */
-
-    /*#region Welcome Region */
-
-    /*#endregion Welcome Region */
-
-    .hp-quick-search .region-quick-search-container {
-        padding: 42px 24px 50px;
-    }
-    /*#region Footer */
-    /*#endregion Footer */
-    /*#region Fixed smi */
-    /*#endregion Fixed smi */
-}
-
-@media only screen and (max-width: 1366px) {
-    /*#region Global */
-    /*#endregion Global */
-
-    /*#region Slideshow Region */
-
-    /*#endregion Slideshow Region */
-
-    /*#region Welcome Region */
-
-    /*#endregion Welcome Region */
-
-    /*#region Footer */
-    /*#endregion Footer */
-    /*#region Fixed smi */
-    /*#endregion Fixed smi */
-}
-
+ 
+/* iPad(landscape) | iPad(landscape) | Galaxy Tab 4 (landscape) | Galaxy Tab 3 (landscape) */ 
 @media only screen and (max-width: 1199px) {
-    /*#region Global */
-    /*#endregion Global */
 
-    /*#region Slideshow Region */
+} 
 
-    /*#endregion Slideshow Region */
-
-    /*#region Welcome Region */
-
-    /*#endregion Welcome Region */
-
-    /*#region Footer */
-    /*#endregion Footer */
-    /*#region Fixed smi */
-    /*#endregion Fixed smi */
-}
-
-/* iPad(portrait) | Galaxy Tab 4(portrait) */
-
+/* iPad(portrait) | Galaxy Tab 4(portrait)  */ 
 @media only screen and (max-width: 991px) {
-    .pojo-ally-toolbar-toggle {
-        display: none;
-    }
+	
+	/* The following are used on inner pages. Please edit carefully. */
 
-    .section-title {
-        text-align: center;
-        margin-bottom: 40px;
-    }
+	.inner {
+	    width: 100%;
+	}
+	#content-sidebar, #content-full {
+	    width: 100%;
+	}	
+	.outer{
+		width: 100%;
+		min-width: 100%;
+	}
+	#content-sidebar #content{
+		width: 100%;
+	}
+	
+} 
 
-    .hp-sidebar {
-        display: none;
-    }
-
-    /*#region Header */
-
-    header.header {
-        position: relative;
-        margin-top: 53px;
-        background: #111;
-        padding: 25px 15px;
-    }
-
-    .header-container {
-        display: flex;
-        justify-content: center;
-    }
-
-    .navigation {
-        display: none;
-    }
-    /*#endregion Header */
-    /* The following are used on inner pages. Please edit carefully. */
-    .aios-mobile-header-wrapper {
-        z-index: 1020 !important;
-    }
-
-    .inner {
-        width: 100%;
-    }
-    #content-sidebar,
-    #content-full {
-        width: 100%;
-    }
-    .outer {
-        width: 100%;
-        min-width: 100%;
-    }
-    #content-sidebar #content {
-        width: 100%;
-    }
-}
-
-/* Galaxy Tab 3(portrait) | Galaxy S5(landscape) */
-
+/* Galaxy Tab 3(portrait) | Galaxy S5(landscape) */ 
 @media only screen and (max-width: 767px) {
-    /* 481 */
-    .ip-banner .container {
+    .ip-banner .container{
         width: 100%;
     }
 }
 
-/* Galaxy S5(portrait) | iPod Touch(landscape) | iPod Touch(portrait) */
-
+/* Galaxy S5(portrait) | iPod Touch(landscape) | iPod Touch(portrait) */ 
 @media only screen and (max-width: 480px) {
-    /*#region Global */
-    /*#endregion Global */
 
-    /*#region Footer */
-    /*#endregion Footer */
-    /*#region Fixed smi */
-    /*#endregion Fixed smi */
 }
+ 

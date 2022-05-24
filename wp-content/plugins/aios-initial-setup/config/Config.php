@@ -41,6 +41,12 @@ trait Config
 				  'function' => 'enqueue-libraries/index.php',
 				  'restrict' => 'yes'
 			  ],
+			  'login-screen' => [
+				  'url' => 'login-screen',
+				  'title' => 'Login Screen',
+				  'function' => 'login-screen/index.php',
+				  'restrict' => 'yes'
+			  ],
 			  'duplicate-menu' => [
 				  'url' => 'duplicate-menu',
 				  'title' => 'Duplicate Menu',
@@ -317,6 +323,9 @@ trait Config
     ];
   }
 
+	/**
+	 * @return array
+	 */
   protected function productTypes()
   {
     return [
@@ -329,6 +338,10 @@ trait Config
         'id' 	=> 'agentpro'
       ],
       [
+        'name' 	=> 'AIX',
+        'id' 	=> 'aix'
+      ],
+      [
         'name' 	=> 'Semi-Custom',
         'id' 	=> 'semicustom'
       ],
@@ -337,33 +350,30 @@ trait Config
         'id' 	=> 'imaginestudio'
       ],
       [
-        'name' 	=> 'PropertyPro',
-        'id' 	=> 'propertypro'
-      ],
-      [
-        'name' 	=> 'CommunityPro',
-        'id' 	=> 'communitypro'
-      ],
-      [
-        'name' 	=> 'Agent Image X',
-        'id' 	=> 'aix'
-      ],
-      [
-        'name' 	=> 'Agent Image X - Solid Source',
-        'id' 	=> 'solidsource'
-      ],
-      [
-        'name' 	=> 'Original Login',
-        'id' 	=> 'original'
-      ],
-      [
-        'name' 	=> 'The Design People',
-        'id' 	=> 'thedesignpeople'
-      ],
-      [
         'name' 	=> 'True Custom',
         'id' 	=> 'true-custom'
       ]
+    ];
+  }
+
+	/**
+	 * @return array
+	 */
+  protected function captchaTypes()
+  {
+    return [
+      [
+        'name' 	=> 'Default',
+        'id' 	=> 'default'
+      ],
+      [
+        'name' 	=> 'Google reCAPTCHA v2',
+        'id' 	=> 'google-recaptcha-v2'
+      ],
+      [
+        'name' 	=> 'Google reCAPTCHA v3',
+        'id' 	=> 'google-recaptcha-v3'
+      ],
     ];
   }
 

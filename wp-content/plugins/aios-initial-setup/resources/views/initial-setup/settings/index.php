@@ -130,7 +130,7 @@
 <!-- BEGIN: Row Box -->
 <div class="wpui-row wpui-row-box">
 	<div class="wpui-col-md-3">
-    <p class="mt-0"><span class="wpui-settings-title">Switch to TDP Labs</span> This will disable all real estate related functions</p>
+    <p class="mt-0"><span class="wpui-settings-title">Switch to Redux Labs</span> This will disable all real estate related functions</p>
 	</div>
 	<div class="wpui-col-md-9">
 		<div class="form-group">

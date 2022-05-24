@@ -84,6 +84,11 @@ class InitialSetup
     $libraries = get_option('aios-enqueue-cdn');
 
     // Login Screen
+	  $captchaScreen = get_option('aios_custom_login_captcha');
+	  $captchaScreen = ! empty($captchaScreen) ? $captchaScreen : 'default';
+	  $captchaScreenRecaptcha = get_option('aios_custom_login_recaptcha', '');
+    $captchaTypes = $this->captchaTypes();
+
     $loginScreen = get_option('aios_custom_login_screen');
     $loginScreen = ! empty($loginScreen) ? $loginScreen : 'default';
     $loginScreenLogo = get_option('aios_custom_login_screen_logo', '');
