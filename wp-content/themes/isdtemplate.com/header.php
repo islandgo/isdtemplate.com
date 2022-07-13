@@ -33,7 +33,8 @@
 				</a>
 			</div>
 			<nav class="navigation">
-				<!-- if Header contact -->
+			
+
 				<div class="header-contact">
 					<div class="header-phone">
 						<span class="ai-font-phone-o"></span>
@@ -44,7 +45,10 @@
 						<?php echo do_shortcode('[mail_to email="isdtemplate.com"]isdtemplate.com[/mail_to]')?>
 					</div>
 				</div>
+			
+
 				<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'menu_id' => 'nav', 'theme_location' => 'primary-menu' ) ); ?>
+				
 			</nav>
 			
 		</div>
