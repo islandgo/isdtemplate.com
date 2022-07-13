@@ -9,34 +9,8 @@ class ShortcodeController
    */
   public function __construct()
   {
-    add_action('admin_footer', [$this, 'widgetShortcode'], 101);
     // This hook is called during each page load, after the theme is initialized.
     add_action('after_setup_theme', [$this, 'shortcodeLists'], 20);
-  }
-
-  /**
-   * Insert list of shortcode in widgets.
-   *
-   * @since 1.0.0
-   *
-   * @access public
-   */
-  public function widgetShortcode() {
-    $admin_page_id = get_current_screen()->id;
-    $admin_page_contains = 'widgets';
-    if (str_exists($admin_page_id, $admin_page_contains)) {
-      echo '<div id="aios-shortcode-popup">
-        <div class="_overlay"></div>
-        <div class="aios-shortcode-popup-container">
-          <div id="wpui-container">
-            <div class="wpui-container">
-              <h4>AIOS Shortcode <div class="_close"><em class="ai-font-x-sign""></em></div></h4>';
-      require_once AIOS_INITIAL_SETUP_VIEWS . 'initial-setup' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'index.php';
-      echo '</div>
-          </div>
-        </div>
-      </div>';
-    }
   }
 
   /**
@@ -50,6 +24,7 @@ class ShortcodeController
   {
     // Force to remove old shortcodes and replace
     add_shortcode('agentimage_credits', [$this, 'credits_shortcode']);
+    add_shortcode('bloginfo', [$this, 'get_bloginfo']);
     add_shortcode('blogurl', [$this, 'get_blogurl']);
     add_shortcode('current_url', [$this, 'get_current_url']);
     add_shortcode('agentimage_video', [$this, 'get_agentimage_video']);
@@ -71,6 +46,13 @@ class ShortcodeController
 
     // Custom Banner
     add_shortcode('aios_custom_banner',  [$this, 'aios_custom_banner_render']);
+
+    // Current dates
+	  add_shortcode('date_day', [$this, 'date_day']);
+	  add_shortcode('date_year', [$this, 'date_year']);
+	  add_shortcode('date_month', [$this, 'date_month']);
+	  add_shortcode('date_yyyymmdd', [$this, 'date_yyyymmdd']);
+	  add_shortcode('date_monthyear', [$this, 'date_monthyear']);
   }
 
   /**
@@ -118,6 +100,22 @@ class ShortcodeController
     }
 
     return $credits;
+  }
+
+	/**
+	 * Displays information about the current site.
+	 * @param $atts
+	 *
+	 * @since 5.8.0
+	 * @access public
+	 * @return string
+	 */
+  public function get_bloginfo($atts) {
+	  $atts = shortcode_atts([
+		  'show' => '',
+	  ], $atts, 'bloginfo');
+
+	  return get_bloginfo($atts['shows']);
   }
 
   /**
@@ -403,24 +401,24 @@ class ShortcodeController
 		
 		<div class="aios-mortgage-calculator-standalone-mort-row">
 			<div class="aios-mortgage-calculator-standalone-full-input">
-				<label>Length of Loan Years *</label>
-				<input type="text" class="aios-mortgage-calculator-standalone-loan-years aios-mortgage-calculator-standalone-number" name="YR" value="' . $atts['years'] . '">
+				<label for="aios-mortgage-calculator-standalone-loan-years">Length of Loan Years *</label>
+				<input type="text" id="aios-mortgage-calculator-standalone-loan-years" class="aios-mortgage-calculator-standalone-loan-years aios-mortgage-calculator-standalone-number" name="YR" value="' . $atts['years'] . '">
 			</div> 
 			<div class="aios-mortgage-calculator-standalone-full-input">
-				<label>Interest Rate (%) *</label>
-				<input type="text" class="aios-mortgage-calculator-standalone-interest-rate aios-mortgage-calculator-standalone-number" name="IR" value="' . $atts['interest'] . '">
+				<label for="aios-mortgage-calculator-standalone-interest-rate">Interest Rate (%) *</label>
+				<input type="text" id="aios-mortgage-calculator-standalone-interest-rate" class="aios-mortgage-calculator-standalone-interest-rate aios-mortgage-calculator-standalone-number" name="IR" value="' . $atts['interest'] . '">
 			</div>
 			<div class="aios-mortgage-calculator-standalone-half-input">
-				<label>Loan Amount *</label>
-				<input type="text" class="aios-mortgage-calculator-standalone-loan-amount aios-mortgage-calculator-standalone-number" name="LA" value="' . $atts['la'] . '">
+				<label for="aios-mortgage-calculator-standalone-loan-amount">Loan Amount *</label>
+				<input type="text" id="aios-mortgage-calculator-standalone-loan-amount" class="aios-mortgage-calculator-standalone-loan-amount aios-mortgage-calculator-standalone-number" name="LA" value="' . $atts['la'] . '">
 			</div>
 			<div class="aios-mortgage-calculator-standalone-half-input">
-				<label>Annual Property Tax *</label>
-				<input type="text" class="aios-mortgage-calculator-standalone-property-tax aios-mortgage-calculator-standalone-number" value="' . $atts['tax'] . '" name="AT" >
+				<label for="aios-mortgage-calculator-standalone-property-tax">Annual Property Tax *</label>
+				<input type="text" id="aios-mortgage-calculator-standalone-property-tax" class="aios-mortgage-calculator-standalone-property-tax aios-mortgage-calculator-standalone-number" value="' . $atts['tax'] . '" name="AT" >
 			</div>
 			<div class="aios-mortgage-calculator-standalone-full-input">
-				<label>Annual Insurance *</label>
-				<input type="text" class="aios-mortgage-calculator-standalone-annual-insurance aios-mortgage-calculator-standalone-number" name="AI" value="' . $atts['insurance'] . '">
+				<label for="aios-mortgage-calculator-standalone-annual-insurance">Annual Insurance *</label>
+				<input type="text" id="aios-mortgage-calculator-standalone-annual-insurance" class="aios-mortgage-calculator-standalone-annual-insurance aios-mortgage-calculator-standalone-number" name="AI" value="' . $atts['insurance'] . '">
 			</div>
 			<div class="aios-mortgage-calculator-standalone-mortgage-buttons">
 				<div class="aios-mortgage-calculator-standalone-half-input">
@@ -434,28 +432,28 @@ class ShortcodeController
 		<div class="aios-mortgage-calculator-standalone-calculation-result">
 			<div class="aios-mortgage-calculator-standalone-mort-row">
 				<div class="aios-mortgage-calculator-standalone-half-input">
-					<span>Monthly Principal + Interest:</span>
+					<label for="aios-mortgage-calculator-standalone-PI"><span>Monthly Principal + Interest:</span></label>
 				</div>
 				<div class="aios-mortgage-calculator-standalone-half-input">
-					<input readonly type="text" name="PI">
+					<input readonly type="text" name="PI" id="aios-mortgage-calculator-standalone-PI">
 				</div>
 				<div class="aios-mortgage-calculator-standalone-half-input">
-					<span>Monthly Tax:</span>
+					<label for="aios-mortgage-calculator-standalone-MT"><span>Monthly Tax:</span></label>
 				</div>
 				<div class="aios-mortgage-calculator-standalone-half-input">
-						<input readonly type="text" name="MT">
+						<input readonly type="text" name="MT" id="aios-mortgage-calculator-standalone-MT">
 				</div>
 				<div class="aios-mortgage-calculator-standalone-half-input">
-					<span>Monthly Insurance:</span>
+					<label for="aios-mortgage-calculator-standalone-MI"><span>Monthly Insurance:</span></label>
 				</div>
 				<div class="aios-mortgage-calculator-standalone-half-input">
-						<input readonly type="text" name="MI" >
+						<input readonly type="text" name="MI" id="aios-mortgage-calculator-standalone-MI">
 				</div>
 				<div class="aios-mortgage-calculator-standalone-half-input">
-					<span>Total Payment:</span>
+					<label for="aios-mortgage-calculator-standalone-MP"><span>Total Payment:</span></label>
 				</div>
 				<div class="aios-mortgage-calculator-standalone-half-input">
-						<input readonly type="text" name="MP">
+					<input readonly type="text" name="MP" id="aios-mortgage-calculator-standalone-MP">
 				</div>
 			</div>
 		</div>
@@ -678,6 +676,54 @@ class ShortcodeController
 
     return strip_shortcodes(do_shortcode($content));
   }
+
+	/**
+	 * Display current Year
+	 *
+	 * @return string
+	 */
+	public function date_year () {
+		return date_i18n ('Y');
+	}
+
+	/**
+	 * Display current Month
+	 *
+	 * @return string
+	 */
+	public function date_month () {
+		return date_i18n ('F');
+	}
+
+	/**
+	 * Display current date as YYYY-MM-DD
+	 *
+	 * @since 5.8.0
+	 * @return string
+	 */
+	public function date_yyyymmdd () {
+		return date_i18n ('y-m-d');
+	}
+
+	/**
+	 * Display current month and year
+	 *
+	 * @since 5.8.0
+	 * @return string
+	 */
+	public function date_monthyear () {
+		return date_i18n ('F Y');
+	}
+
+	/**
+	 * Display current day
+	 *
+	 * @since 5.8.0
+	 * @return string
+	 */
+	public function date_day () {
+		return date_i18n ('l');
+	}
 }
 
 new ShortcodeController();

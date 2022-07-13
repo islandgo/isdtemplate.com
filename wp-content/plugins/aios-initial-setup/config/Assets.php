@@ -131,7 +131,7 @@ trait Assets
   protected function enqueue_required_assets($options)
   {
     // Enqueue AI Fonts
-    wp_enqueue_style('agentimage-font', 'https://resources.agentimage.com/fonts/agentimage.font.icons.css');
+    wp_enqueue_style('agentimage-font', 'https://resources.agentimage.com/fonts/agentimage.font.icons.css', [], null, false);
 
     // Enqueue jQuery wp_enqueue array('jquery') - first make sure that jquery file is include in the header
     wp_enqueue_script('jquery');
@@ -174,8 +174,8 @@ trait Assets
       // SEO-friendly and self-initializing lazyloader for images (including responsive images picture/srcset)
       'aios-lazysizes' => 'https://resources.agentimage.com/libraries/js/lazysizes.min.js',
 
-      'aios-starter-theme-mobile-iframe-fix' => 'https://resources.agentimage.com/libraries/js/mobile-iframe-fix.js',
-      'aios-starter-theme-html5' => 'https://resources.agentimage.com/libraries/js/html5.js',
+      // 'aios-starter-theme-mobile-iframe-fix' => 'https://resources.agentimage.com/libraries/js/mobile-iframe-fix.js',
+      // 'aios-starter-theme-html5' => 'https://resources.agentimage.com/libraries/js/html5.js',
       'aios-starter-theme-bootstrap-js' => 'https://resources.agentimage.com/bootstrap/bootstrap.min.js',
       'aios-nav-double-tap' => 'https://resources.agentimage.com/libraries/js/jquery.nav-tab-double-tap.min.js',
       'aios-starter-theme-popup' => 'https://resources.agentimage.com/libraries/js/aios-popup.min.js',
@@ -190,6 +190,7 @@ trait Assets
       'aios-utilities-style' => 'https://resources.agentimage.com/libraries/css/aios-utilities.min.css',
       'aios-animate-style' => 'https://resources.agentimage.com/libraries/css/animate.min.css',
       'aios-slick-style' => 'https://resources.agentimage.com/libraries/css/slick.min.css',
+      'aios-slick-1-8-1-style' => 'https://resources.agentimage.com/libraries/css/slick.min.1.8.1.css',
       'aios-swiper-style' => 'https://resources.agentimage.com/libraries/css/swiper.min.css',
       'aios-simplebar-style' => 'https://resources.agentimage.com/libraries/css/simplebar.min.css',
       'aios-aos-style' => 'https://resources.agentimage.com/libraries/css/aos.min.css',
@@ -209,6 +210,7 @@ trait Assets
       'aios-elementpeek-script' => 'https://resources.agentimage.com/libraries/js/jquery.elementpeek.min.js',
       'aios-splitNav-script' => 'https://resources.agentimage.com/libraries/js/aios-split-nav.min.js',
       'aios-slick-script' => 'https://resources.agentimage.com/libraries/js/slick.min.js',
+      'aios-slick-1-8-1-script' => 'https://resources.agentimage.com/libraries/js/slick.min.1.8.1.js',
       'aios-swiper-script' => 'https://resources.agentimage.com/libraries/js/swiper.min.js',
       'aios-simplebar-script' => 'https://resources.agentimage.com/libraries/js/simplebar.min.js',
       'aios-aos-script' => 'https://resources.agentimage.com/libraries/js/aos.min.js',
@@ -288,6 +290,11 @@ trait Assets
     if (isset($options['slick']) && $options['slick'] === 1) {
       $enqueue_style_names[] = 'aios-slick-style';
       $enqueue_script_names[] = 'aios-slick-script';
+    }
+
+    if (isset($options['slick-1-8-1']) && $options['slick-1-8-1'] === 1) {
+      $enqueue_style_names[] = 'aios-slick-1-8-1-style';
+      $enqueue_script_names[] = 'aios-slick-1-8-1-script';
     }
 
     if (isset($options['swiper']) && $options['swiper'] === 1) {

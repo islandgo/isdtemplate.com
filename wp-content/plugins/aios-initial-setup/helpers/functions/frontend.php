@@ -18,13 +18,13 @@ if (! function_exists('is_custom_field_banner')) {
     }
 
     // Check if obj is object, only post type and taxonomy will return object
-    if (!is_object($obj)) {
+    if (! is_object($obj)) {
       return false;
     }
 
     // Get Object Type then return false if empty
     $object_type = ! is_null($obj->post_type) ? $obj->post_type : (! is_null($obj->taxonomy) ? $obj->taxonomy : '');
-    if(! empty($object_type)) {
+    if (! empty($object_type)) {
       $aios_banner_post_types = get_option('aios-metaboxes-banner-post-types', []);
       $aios_banner_taxonomies = get_option('aios-metaboxes-banner-taxonomies', []);
 
@@ -35,7 +35,7 @@ if (! function_exists('is_custom_field_banner')) {
       $banner_metaboxes = array_merge_recursive((array)$aios_banner_post_types, (array)$aios_banner_taxonomies);
       $banner_metaboxes = array_filter((array)$banner_metaboxes);
 
-      if(array_key_exists($object_type, $banner_metaboxes)) {
+      if (array_key_exists($object_type, $banner_metaboxes)) {
         return true;
       }
     }

@@ -21,10 +21,10 @@
           <div class="wpui-tabs-container">
             <div class="wpui-row wpui-row-box list-of-logs-heading">
               <div class="wpui-col-md-3">
-                <p><strong>Date</strong></p>
+                <p><strong>IP Address</strong></p>
               </div>
               <div class="wpui-col-md-3">
-                <p><strong>ISP</strong></p>
+                <p><strong>Date</strong></p>
               </div>
               <div class="wpui-col-md-3">
                 <p><strong>Tried to log in as</strong></p>

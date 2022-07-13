@@ -7,11 +7,6 @@
 
 namespace AiosInitialSetup\App\Modules\ActivityLogs;
 
-// If is not admin page or login page we should not run this module
-if ($GLOBALS['pagenow'] === 'index.php') {
-  return;
-}
-
 require_once "jsondb/jsondb.php";
 
 class Module {

@@ -114,6 +114,16 @@
         <div class="form-toggle-switch">
           <div class="form-checkbox">
             <label>
+              <input type="checkbox" name="aios-enqueue-cdn[slick-1-8-1]" id="slick" value="1" <?= $libraries['slick-1-8-1'] ?? '' === 1 ? 'checked=checked' : '' ?>>
+              Slick v1.8.1
+              <span class="form-group-description"><strong>CSS & JavaScript</strong> <em>(handler: </em>aios-slick-style AND aios-slick-script<em>)</em> - <a href="http://kenwheeler.github.io/slick/" target="_blank">Demo</a></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-toggle-switch">
+          <div class="form-checkbox">
+            <label>
               <input type="checkbox" name="aios-enqueue-cdn[swiper]" id="swiper" value="1" <?= $libraries['swiper'] ?? '' === 1 ? 'checked=checked' : '' ?>>
               Swiper 4.5.0
               <span class="form-group-description"><strong>CSS & JavaScript</strong> <em>(handler: </em>aios-swiper-style AND aios-swiper-script<em>)</em> - <a href="https://idangero.us/swiper/demos/" target="_blank">Demo</a></span>

@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<<<<<<< HEAD
 <!-- slideshow -->
 <section class="hp-slideshow aios-scroll-section" id="content-slideshow" data-aios-scroll-title="slideshow">
     <div class="region-slideshow-container">
@@ -280,3 +281,11 @@
 
 
 <?php get_footer(); ?>
+=======
+
+	<!-- your home html -->
+
+	<!-- your home html -->
+
+<?php get_footer(); ?>
+>>>>>>> f2643324ff70065de82f4df7b7fbab20a949a9d8

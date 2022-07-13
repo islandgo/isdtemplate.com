@@ -13,6 +13,8 @@ class FetchController
    */
   public function __construct()
   {
+	  if (! is_admin()) return;
+
     add_action('admin_enqueue_scripts', [$this, 'admin_uiux'], 11);
 
     // AJAX Action to Save Options
@@ -31,7 +33,7 @@ class FetchController
     add_action('wp_ajax_duplicate_menu', [$this, 'duplicate_menu']);
 
     // AJAX Action to Refresh minified resources
-    add_action('wp_ajax_refresh_minified_resources', [$this, 'refresh_minified_resources']);
+    // add_action('wp_ajax_refresh_minified_resources', [$this, 'refresh_minified_resources']);
 
     // AJAX Action to Add custom fields
     add_action('wp_ajax_client_info_custom_fields', [$this, 'client_info_custom_fields']);

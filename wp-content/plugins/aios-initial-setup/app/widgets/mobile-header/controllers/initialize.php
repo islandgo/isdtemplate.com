@@ -46,13 +46,15 @@ class Initialize {
    *
    */
 	public function enqueue_assets() {
-		wp_enqueue_script('jquery');
-		wp_enqueue_script('aios-mobile-header-widget-navigation', AIOS_IS_MOBILE_HEADER_URL. '/views/lib/js/aios-mobile-header-navigation.js', [], false, true);
-		wp_enqueue_script('aios-mobile-header-main', AIOS_IS_MOBILE_HEADER_URL. '/views/lib/js/aios-mobile-header.js', [], false, true);
+		if (is_active_sidebar('mobile-header')) {
+			wp_enqueue_script('jquery');
+			wp_enqueue_script('aios-mobile-header-widget-navigation', AIOS_IS_MOBILE_HEADER_URL. '/views/lib/js/aios-mobile-header-navigation.js', [], false, true);
+			wp_enqueue_script('aios-mobile-header-main', AIOS_IS_MOBILE_HEADER_URL. '/views/lib/js/aios-mobile-header.js', [], false, true);
 
-		wp_enqueue_style('aios-mobile-header-main', AIOS_IS_MOBILE_HEADER_URL . '/views/lib/css/style.css');
+			wp_enqueue_style('aios-mobile-header-main', AIOS_IS_MOBILE_HEADER_URL . '/views/lib/css/style.css');
 
-		$this->_theme_manager->enqueue_styles();
+			$this->_theme_manager->enqueue_styles();
+		}
 	}
 }
 

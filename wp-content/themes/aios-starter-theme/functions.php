@@ -241,30 +241,6 @@ if ( ai_starter_theme_is_mobile() ) {
 	show_admin_bar( false );
 }
 
-/* Test image resolution before image crunch
- * Credits: 	http://wordpress.stackexchange.com/users/28660/marc-dingena
- *       		http://wordpress.stackexchange.com/questions/130203/limit-image-resolution-on-upload
- */
-//add_filter('wp_handle_upload_prefilter','ai_starter_theme_validate_image_size');
-
-function ai_starter_theme_validate_image_size( $file ) {
-    $image = getimagesize($file['tmp_name']);
-
-    $maximum = array(
-        'width' => '2000',
-        'height' => '2000'
-    );
-    $image_width = $image[0];
-    $image_height = $image[1];
-
-    $too_large = "Image dimensions are too large. Maximum size is {$maximum['width']} by {$maximum['height']} pixels. Uploaded image is $image_width by $image_height pixels.";
-
-    if ( $image_width > $maximum['width'] || $image_height > $maximum['height'] )
-        return array( 'error' => $too_large );
-    else
-        return $file;
-}
-
 /*
  * Make attachments link nowhere by default
  */

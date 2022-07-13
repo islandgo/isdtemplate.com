@@ -12,14 +12,13 @@ class Leads
    *
    * @access public
    */
-  public function table($dbversion) {
+  public function table($dbversion)
+  {
     global $wpdb;
     $table_name = $wpdb->prefix . AIOS_LEADS_NAME;
     $charset_collate = $wpdb->get_charset_collate();
 
-    /**
-     * Check table exists before create
-     */
+    // Check table exists before create
     if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
       $sql = "CREATE TABLE $table_name (
           id              int(11) NOT NULL AUTO_INCREMENT,

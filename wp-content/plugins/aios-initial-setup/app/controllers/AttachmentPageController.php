@@ -10,32 +10,7 @@ class AttachmentPageController
   public function __construct()
   {
     add_filter('wp_unique_post_slug_is_bad_attachment_slug', '__return_true', 100);
-    add_action('template_redirect', [$this, 'redirect_attachment_page'], 2);
     add_filter('wp_handle_upload_prefilter',[$this, 'validate_image_size']);
-  }
-
-  /**
-   * Add Actions.
-   *
-   * @return bool
-   * @since 3.2.9
-   *
-   * @access public
-   */
-  public function redirect_attachment_page()
-  {
-    if (! is_attachment()) {
-      return false;
-    }
-
-    $url = wp_get_attachment_url(get_queried_object_id());
-
-    if (! empty($url)) {
-      $this->do_attachment_redirect($url);
-      return true;
-    }
-
-    return false;
   }
 
   /**
@@ -55,7 +30,7 @@ class AttachmentPageController
   }
 
   /**
-   * Check if PNG and limit to 300kb
+   * Check if PNG and limit to 5MB
    *
    * @param $file
    * @return array
@@ -63,9 +38,10 @@ class AttachmentPageController
   public function validate_image_size( $file ) {
     $image = getimagesize($file['tmp_name']);
     $size = filesize($file['tmp_name']);
+    $limitSize = defined('AIOS_IMAGE_PNG_UPLOAD') ? AIOS_IMAGE_PNG_UPLOAD : 5000000;
 
-    if ($size > 300000 && $image['mime'] === 'image/png') {
-      $file['error'] = "PNG file are too large. Maximum file size is 300kb, uploaded image is " . $this->formatBytes($size);
+    if ($size > $limitSize && $image['mime'] === 'image/png') {
+      $file['error'] = "PNG file are too large. Maximum file size is 5MB, uploaded image is " . $this->formatBytes($size);
     }
 
     return $file;

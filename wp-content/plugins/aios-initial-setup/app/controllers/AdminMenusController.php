@@ -9,13 +9,6 @@ class AdminMenusController
    */
   public function __construct()
   {
-    // Add 'submenu' option to wp_nav_menu for displaying submenus on parent pages
-    if (! shortcode_exists('wp_nav_menu')) {
-      add_shortcode( 'wp_nav_menu', [$this, 'navShortCode']);
-    }
-
-    add_filter('wp_nav_menu_objects', [$this, 'subMenuLimitShortCode'], 10, 2);
-
     // Remove unnecessary admin menu
     add_action('admin_init', [$this, 'unsetAdminMenus'], 11);
 
@@ -30,82 +23,6 @@ class AdminMenusController
 
     // Allow shortcode in menus
     add_filter('walker_nav_menu_start_el', [$this, 'allowShortcodeNav'], 20, 2);
-  }
-
-  /**
-   * Create shortcode of wp_nav_menu()
-   * @see https://developer.wordpress.org/reference/functions/wp_nav_menu/
-   *
-   * This was transfer
-   * from modules/wp-nav-menu
-   *
-   * @since 4.3.5
-   * @access public
-   * @param $atts
-   * @return string
-   */
-  public function navShortCode($atts)
-  {
-    ob_start();
-    wp_nav_menu($atts);
-    $output = ob_get_contents();
-    ob_end_clean();
-    return $output;
-  }
-
-  /**
-   * Add 'submenu' option to wp_nav_menu
-   * for displaying submenus on parent pages
-   * @see http://www.ordinarycoder.com/wordpress-wp_nav_menu-show-a-submenu-only/
-   *
-   * This was transfer
-   * from modules/wp-nav-menu
-   *
-   * @since 4.3.5
-   * @access public
-   * @param $items
-   * @param $args
-   * @return array
-   */
-  public function subMenuLimitShortCode($items, $args)
-  {
-    if (empty($args->submenu)) {
-      return $items;
-    }
-
-    $object_list = wp_filter_object_list($items, ['title' => $args->submenu], 'and', 'ID');
-    $parent_id = array_pop($object_list);
-    $children  = $this->subMenuGetChildrenID($parent_id, $items);
-
-    foreach ($items as $key => $item) {
-      if (! in_array($item->ID, $children)) {
-        unset($items[$key]);
-      }
-    }
-
-    return $items;
-  }
-
-  /**
-   * callback: subMenuLimitShortCode
-   * Get submenu lists and add submenu option
-   *
-   * This was transfer
-   * from modules/wp-nav-menu
-   *
-   * @param $id
-   * @param $items
-   * @return array
-   * @since 4.3.5
-   * @access public
-   */
-  public function subMenuGetChildrenID($id, $items)
-  {
-    $ids = wp_filter_object_list($items, ['menu_item_parent' => $id], 'and', 'ID');
-    foreach ($ids as $id) {
-      $ids = array_merge($ids, $this->subMenuGetChildrenID($id, $items));
-    }
-    return $ids;
   }
 
   /**

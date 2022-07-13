@@ -12,17 +12,22 @@ class AdminBarController
   public function __construct()
   {
     // Enqueue required css/js files
+    add_action('admin_header', [$this, 'admin_head'], 10);
     add_action('admin_enqueue_scripts', [$this, 'admin_uiux'], 10);
-    add_action('wp_enqueue_scripts', [$this, 'frontend_uiux'], 99);
-
-    // Destroy cookies on login page
-    add_action('login_head', [$this, 'custom_login_page']);
 
     // Add menu above
     add_action('admin_bar_menu', [$this, 'server_data_local_ip'], 997);
     add_action('admin_bar_menu', [$this, 'server_data_network_ip'], 998);
     add_action('admin_bar_menu', [$this, 'server_data_server_ip'], 999);
     add_filter('admin_bar_menu', [$this, 'custom_admin_bar_menu'], 11);
+	  add_action('admin_head', [$this, 'show_favicon'], 1);
+  }
+
+  public function admin_head()
+  {
+  	echo "jQuery(document).ready( function() {
+	jQuery(\".options-discussion-php input[name='default_pingback_flag'],.options-discussion-php input[name='default_ping_status'],.options-discussion-php input[name='default_comment_status']\").attr(\"disabled\",\"disabled\");
+});";
   }
 
   /**
@@ -35,37 +40,6 @@ class AdminBarController
   public function admin_uiux()
   {
     wp_enqueue_script('aios-initial-setup-internet-protocol', AIOS_INITIAL_SETUP_RESOURCES . 'js/internet-protocol.min.js');
-  }
-
-  /**
-   * Enqueue detect local ip address
-   *
-   * @since 2.8.6
-   *
-   * @access public
-   */
-  public function frontend_uiux()
-  {
-    if (strtolower(wp_get_current_user()->user_login) === 'agentimage') {
-      wp_enqueue_script('aios-initial-setup-internet-protocol', AIOS_INITIAL_SETUP_RESOURCES . 'js/internet-protocol.min.js');
-    }
-  }
-
-  /**
-   * Deleting a cookie
-   *
-   * @since 2.8.6
-   *
-   * @access public
-   */
-  public function custom_login_page()
-  {
-    echo '<script>
-    var date = new Date();
-      date.setTime( date.getTime() + (-1000 * 60 * 60 * 1000) );
-      expires = "; expires=" + date.toUTCString();
-      document.cookie = "aioswp_6c6f63616c2d69702d61646472657373=" + false + expires + "; path=/";
-    </script>';
   }
 
   /**
@@ -239,6 +213,18 @@ class AdminBarController
       ]);
     }
   }
+
+	/**
+	 * Enqueue scripts and styles for initial setup sub page
+	 *
+	 * @return mixed
+	 */
+	public function show_favicon() {
+		$favicon = get_option('aiis_ci')['favicon'] ?? '';
+		if (!empty($favicon)) {
+			echo str_replace('[stylesheet_directory]', get_stylesheet_directory_uri(), stripslashes($favicon));
+		}
+	}
 }
 
 new AdminBarController();
